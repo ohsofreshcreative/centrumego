@@ -1459,16 +1459,6 @@
           "color": "#fff"
         },
         {
-          "name": "Body",
-          "slug": "body",
-          "color": "rgb(var(--body))"
-        },
-        {
-          "name": "Carbon",
-          "slug": "carbon",
-          "color": "rgb(var(--carbon))"
-        },
-        {
           "name": "Primary",
           "slug": "primary",
           "color": "rgb(var(--primary))"
@@ -1509,11 +1499,6 @@
           "color": "rgb(var(--p-700))"
         },
         {
-          "name": "Primary (800)",
-          "slug": "primary-800",
-          "color": "rgb(var(--p-800))"
-        },
-        {
           "name": "Primary (Dark)",
           "slug": "primary-dark",
           "color": "rgb(var(--p-dark))"
@@ -1534,6 +1519,11 @@
           "color": "rgb(var(--s-100))"
         },
         {
+          "name": "Secondary (200)",
+          "slug": "secondary-200",
+          "color": "rgb(var(--s-200))"
+        },
+        {
           "name": "Secondary (300)",
           "slug": "secondary-300",
           "color": "rgb(var(--s-300))"
@@ -1552,21 +1542,6 @@
           "name": "Secondary (Dark)",
           "slug": "secondary-dark",
           "color": "rgb(var(--s-dark))"
-        },
-        {
-          "name": "Third",
-          "slug": "third",
-          "color": "rgb(var(--third))"
-        },
-        {
-          "name": "Third (Hover)",
-          "slug": "third-hover",
-          "color": "rgb(var(--t-hover))"
-        },
-        {
-          "name": "Third (100)",
-          "slug": "third-100",
-          "color": "rgb(var(--t-100))"
         },
         {
           "name": "Action",

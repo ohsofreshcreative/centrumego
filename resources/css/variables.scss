@@ -91,8 +91,8 @@ body {
 /*--- !ROOT ---*/
 
 :root {
-	--header: "din-2014", sans-serif;
-	--txt: "din-2014", sans-serif;
+	--header: "richmond-display", sans-serif;
+	--txt: "inter", sans-serif;
 	--btns-font: "din-2014", sans-serif;
 
 	--smt: 104px;
@@ -429,7 +429,7 @@ em,
 div,
 .__txt {
 	font-family: var(--txt);
-	font-weight: 300;
+	font-weight: 400;
 }
 
 ul,
@@ -496,13 +496,13 @@ h6,
 h1,
 .text-h1 {
 	font-size: 60px !important;
-	line-height: 4rem;
+	line-height: 1.1;
 }
 
 h2,
 .text-h2 {
-	font-size: 54px !important;
-	line-height: 3.7rem;
+	font-size: 48px !important;
+	line-height: 1.1;
 }
 
 h3,
@@ -514,7 +514,7 @@ h3,
 h4,
 .text-h4 {
 	font-size: 36px !important;
-	line-height: 2.4rem;
+	line-height: 1.3;
 }
 
 h5,
@@ -590,7 +590,7 @@ h6,
 .btn {
 	font-family: var(--btns-font);
 	font-size: var(--btns-fontsize);
-	font-weight: 400;
+	font-weight: 500;
 	color: #fff;
 	background: transparent;
 	border: 1px solid transparent;
@@ -606,26 +606,26 @@ h6,
 }
 
 .btn-primary {
-	background-color: var(--color-primary);
-	border-color: var(--color-primary);
+	background-color: var(--color-third);
+	border-color: var(--color-third);
 	color: #fff;
 }
 
 .btn-primary:hover {
-	background-color: var(--color-primary-hover);
-	border-color: var(--color-primary-hover);
+	background-color: var(--color-third-hover);
+	border-color: var(--color-third-hover);
 	color: #fff;
 }
 
 .btn-secondary {
-	background-color: var(--color-secondary);
-	border-color: var(--color-secondary);
-	color: #fff;
+	background-color: var(--color-white);
+	border-color: var(--color-third);
+	color: var(--color-third);
 }
 
 .btn-secondary:hover {
-	background-color: var(--color-secondary-hover);
-	border-color: var(--color-secondary-hover);
+	background-color: var(--color-third-hover);
+	border-color: var(--color-third-hover);
 	color: #fff;
 }
 
@@ -741,8 +741,8 @@ h6,
 	display: flex;
 	align-items: center;
 	color: var(--body) !important;
-	font-size: 16px;
-	white-space: nowrap;
+	font-size: 16px!important;
+	white-space: nowrap; 
 }
 
 .fixed-top.scrollUp {

@@ -9,59 +9,59 @@
 :root {
   /* base */
   --body: 42 63 80; /* #2A3F50 */
+ --carbon: 18 20 26; /* #12141A */
+
 
 /* PRIMARY (lewa kolumna – granat) */
---primary: 0 87 155; /* #00579B */
---p-hover: 4 6 45; /* #04062D */
+--primary: 10 57 124;    /* BASE | #0A397C */
+--p-hover: 8 48 103;     /* #083067 (odpowiednik 60% na hover) */
+--action: rgb(10, 57, 124);
 
-/* PRIMARY (niebieski) */
---p-50: 176 214 243;  /* #B0D6F3 */
---p-100: 138 190 230; /* #8ABEE6 */
---p-200: 94 157 207;  /* #5E9DCF */
---p-300: 57 135 195;  /* #3987C3 */
---p-400: 23 107 172;  /* #176BAC */
---p-500: 0 87 155;    /* #00579B */
---p-600: 0 73 129;    /* #004981 */
---p-700: 0 58 103;    /* #003A67 */
---p-800: 0 44 78;     /* #002C4E */
---p-900: 0 29 52;     /* #001D34 */
---p-dark: 0 17 31;    /* #00111F */
-
---action: rgb(0, 87, 155);
+--p-50: 186 206 235;    /* 10%  | #BACEEB */
+--p-100: 153 181 222;   /* 20%  | #99B5DE */
+--p-200: 108 145 199;   /* 30%  | #6C91C7 */
+--p-300: 73 117 179;    /* 40%  | #4975B3 */
+--p-400: 32 82 152;     /* 50%  | #205298 */
+--p-500: 10 57 124;     /* BASE | #0A397C */
+--p-600: 8 48 103;      /* 60%  | #083067 */
+--p-700: 7 38 83;       /* 70%  | #072653 */
+--p-800: 5 29 62;       /* 80%  | #051D3E */
+--p-900: 3 19 41;       /* 90%  | #031329 */
+--p-dark: 2 11 25;      /* 100% | #020B19 */
 
 
-/* SECONDARY (turkusowy) */
---secondary: 0 192 197; /* #00C0C5 */
---s-hover: 0 160 164;   /* #00A0A4 */
+/* SECONDARY (środkowo-lewa kolumna – niebieski) */
+--secondary: 0 122 194; /* BASE | #007AC2 */
+--s-hover: 0 102 162;   /* #0066A2 (odpowiednik 60% na hover) */
 
---s-50: 171 244 246;  /* #ABF4F6 */
---s-100: 137 238 241; /* #89EEF1 */
---s-200: 99 224 228;  /* #63E0E4 */
---s-300: 59 222 226;  /* #3BDEE2 */
---s-400: 22 211 216;  /* #16D3D8 */
---s-500: 0 192 197;   /* #00C0C5 */
---s-600: 0 160 164;   /* #00A0A4 */
---s-700: 0 128 131;   /* #008083 */
---s-800: 0 96 99;     /* #006063 */
---s-900: 0 64 66;     /* #004042 */
---s-dark: 0 38 39;    /* #002627 */
+--s-50: 173 224 255;    /* 10%  | #ADEOFF */
+--s-100: 127 203 248;   /* 20%  | #7FCBF8 */
+--s-200: 78 178 238;    /* 30%  | #4EB2EE */
+--s-300: 49 166 235;    /* 40%  | #31A6EB */
+--s-400: 14 141 215;    /* 50%  | #0E8DD7 */
+--s-500: 0 122 194;     /* BASE | #007AC2 */
+--s-600: 0 102 162;     /* 60%  | #0066A2 */
+--s-700: 0 81 129;      /* 70%  | #005181 */
+--s-800: 0 61 97;       /* 80%  | #003D61 */
+--s-900: 0 41 65;       /* 90%  | #002941 */
+--s-dark: 0 24 39;      /* 100% | #001827 */
 
 
-/* THIRD (różowy/fioletowy) */
---third: 248 129 240; /* #F881F0 */
---t-hover: 207 108 200; /* #CF6CC8 */
+/* THIRD (środkowo-prawa kolumna – czerwony) */
+--third: 255 52 55;     /* BASE | #FF3437 */
+--t-hover: 213 43 46;   /* #D52B2E (odpowiednik 60% na hover) */
 
---t-50: 254 230 252;  /* #FEE6FC */
---t-100: 253 213 250; /* #FDD5FA */
---t-200: 252 192 248; /* #FCC0F8 */
---t-300: 250 171 245; /* #FAABF5 */
---t-400: 249 150 243; /* #F996F3 */
---t-500: 248 129 240; /* #F881F0 */
---t-600: 207 108 200; /* #CF6CC8 */
---t-700: 165 86 160;  /* #A556A0 */
---t-800: 124 65 120;  /* #7C4178 */
---t-900: 83 43 80;    /* #532B50 */
---t-dark: 50 26 48;   /* #321A30 */
+--t-50: 255 214 215;    /* 10%  | #FFD6D7 */
+--t-100: 255 187 188;   /* 20%  | #FFBBBC */
+--t-200: 255 153 155;   /* 30%  | #FF9A9B */
+--t-300: 255 120 122;   /* 40%  | #FF787A */
+--t-400: 255 86 88;     /* 50%  | #FF5658 */
+--t-500: 255 52 55;     /* BASE | #FF3437 */
+--t-600: 213 43 46;     /* 60%  | #D52B2E */
+--t-700: 170 35 37;     /* 70%  | #AA2325 */
+--t-800: 128 26 28;     /* 80%  | #801A1C */
+--t-900: 85 17 18;      /* 90%  | #551112 */
+--t-dark: 51 10 11;     /* 100% | #330A0B */
 
   /* neutrals / fixed backgrounds */
   --gray: #2a3f50;
@@ -71,10 +71,11 @@
   --bg-brand: #002704;
   --bg-dark: #071622;
 }
-
+ 
 @theme {
   /* base */
   --color-body: rgb(var(--body));
+  --color-carbon: rgb(var(--carbon));
 
   /* primary */
   --color-primary: rgb(var(--primary));
@@ -94,6 +95,7 @@
   /* secondary */
   --color-secondary: rgb(var(--secondary));
   --color-secondary-hover: rgb(var(--s-hover));
+  --color-secondary-50: rgb(var(--s-50));
   --color-secondary-100: rgb(var(--s-100));
   --color-secondary-200: rgb(var(--s-200));
   --color-secondary-300: rgb(var(--s-300));
@@ -149,12 +151,16 @@
 
 /*-- USED ---*/
 @import '../css/blocks/hero.scss';
+@import '../css/blocks/content-card.scss';
+@import '../css/blocks/content.scss';
+@import '../css/blocks/category-posts.scss';
+@import '../css/blocks/testimonials.scss';
+
+
 /*-- NOT USED ---*/
 @import '../css/blocks/accordion.scss';
 @import '../css/blocks/cards.scss';
-@import '../css/blocks/category-posts.scss';
 @import '../css/blocks/contact.scss';
-@import '../css/blocks/content.scss';
 @import '../css/blocks/cta-bg.scss';
 @import '../css/blocks/faq.scss';
 @import '../css/blocks/banner.scss';

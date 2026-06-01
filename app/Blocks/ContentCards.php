@@ -6,51 +6,54 @@ use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Support\SectionClasses;
 
-class Hero extends Block
+class ContentCards extends Block
 {
-	public $name = 'Hero';
-	public $description = 'Hero';
-	public $slug = 'hero';
+	public $name = 'Tekst, zdjęcie i kafelki';
+	public $description = 'content-cards';
+	public $slug = 'content-cards';
 	public $category = 'formatting';
-	public $icon = 'align-full-width';
+	public $icon = 'align-pull-left';
 	public $keywords = ['tresc', 'zdjecie'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
 		'mode' => false,
 		'jsx' => true,
+		'anchor' => true,
+		'customClassName' => true,
 	];
 
 	public function fields()
 	{
-		$hero = new FieldsBuilder('hero');
+		$content = new FieldsBuilder('content-cards');
 
-		$hero
-			->setLocation('block', '==', 'acf/hero') // ważne!
+		$content
+			->setLocation('block', '==', 'acf/content-cards') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Hero',
+				'label' => 'Tekst, zdjęcie oraz kafelki',
 				'open' => false,
 				'multi_expand' => true,
 			])
-			/*--- TAB #1 ---*/
-			->addTab('Treść', ['placement' => 'top'])
-			->addGroup('g_hero', ['label' => 'Hero'])
+			/*--- GROUP ---*/
+			->addTab('Elementy', ['placement' => 'top'])
+			->addGroup('g_content', ['label' => ''])
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array',
-				'preview_size' => 'medium',
+				'preview_size' => 'thumbnail',
 			])
-			->addText('title', ['label' => 'Tytuł'])
+			->addText('header', ['label' => 'Nagłówek'])
 			->addWysiwyg('txt', [
 				'label' => 'Treść',
-				'tabs' => 'all', // 'visual', 'text', 'all'
-				'toolbar' => 'full', // 'basic', 'full'
+				'tabs' => 'all',
+				'toolbar' => 'full',
 				'media_upload' => true,
 			])
+			
 			->addLink('button1', [
 				'label' => 'Przycisk #1',
 				'return_format' => 'array',
@@ -61,45 +64,31 @@ class Hero extends Block
 			])
 
 			->endGroup()
+			/*--- Tabs ---*/
 			->addTab('Kafelki', ['placement' => 'top'])
-			->addText('title', [
-				'label' => 'Tytuł kafelków',
-			])
-			->addTextarea('desc', [
-				'label' => 'Opis',
-			])
-			->addRepeater('r_hero', [
+			->addRepeater('r_content', [
 				'label' => 'Kafelki',
 				'layout' => 'table',
 				'min' => 1,
 				'button_label' => 'Dodaj kafelek'
 			])
-			->addImage('icon', [
-				'label' => 'Ikona',
+
+			->addImage('card_image', [
+				'label' => 'Obraz',
 				'return_format' => 'array',
 				'preview_size' => 'thumbnail',
 			])
-
-			->addLink('title_link', [
-				'label' => 'Tytuł jako link',
-				'return_format' => 'array',
+			->addText('card_title', [
+				'label' => 'Nagłówek',
 			])
-			->addText('txt', ['label' => 'Tekst'])
-			->addLink('button', [
+			->addTextarea('card_text', [
+				'label' => 'Opis',
+			])
+			->addLink('card_link', [
 				'label' => 'Przycisk',
-				'return_format' => 'array',
 			])
-	->addSelect('tile_bg', [
-                'label' => 'Kolor tła kafelka',
-                'choices' => [
-                    'bg-secondary text-white' => 'Jasnoniebieski (#007AC2)',
-                    'bg-primary text-white'   => 'Granatowy (#0A397C)',
-                    'bg-primary-800 text-white' => 'Ciemnogranatowy (#051D3E)',
-                    'bg-white text-body'      => 'Biały (Domyślny)',
-                ],
-                'default_value' => 'bg-white text-body',
-                'ui' => 1,
-            ])
+
+
 			->endRepeater()
 
 
@@ -158,20 +147,17 @@ class Hero extends Block
 				'allow_null' => 0,
 			]);
 
-
-
-		return $hero;
+		return $content;
 	}
 
 	public function with(): array
 	{
 		$fields = [
-			'g_hero' => get_field('g_hero'),
-			'r_hero' => get_field('r_hero'),
-			'title' => get_field('title'),
-			'desc'  => get_field('desc'),
+			'g_content' => get_field('g_content'),
+			'r_content' => get_field('r_content'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
+		
 
 			'flip' => (bool) get_field('flip'),
 			'wide' => (bool) get_field('wide'),

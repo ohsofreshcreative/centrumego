@@ -1,54 +1,66 @@
-<!--- content -->
-
 <section
-	data-gsap-anim="section"
-	@if(!empty($section_id)) id="{{ $section_id }}" @endif
-	@class([ 'b-content relative -smt' ,
-	$sectionClass=> filled($sectionClass),
-	$section_class => filled($section_class),
-	$background => filled($background) && $background !== 'none',
-	])>
+    data-gsap-anim="section"
+    @if(!empty($section_id)) id="{{ $section_id }}" @endif
+    @class([ 'b-content relative -smt' ,
+    $sectionClass=> filled($sectionClass),
+    $section_class => filled($section_class),
+    $background => filled($background) && $background !== 'none',
+    ])>
 
-	<div class="__wrapper c-main relative">
-		<div class="__col grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-20">
-			@if (!empty($g_content['image']))
-			<div data-gsap-element="img" class="__img h-full order1">
-				<img class="object-cover w-full h-full aspect-[3/2] __img radius-img" src="{{ $g_content['image']['url'] }}" alt="{{ $g_content['image']['alt'] ?? '' }}">
-			</div>
-			@endif
+    <div class="__wrapper c-main relative max-w-[1200px] mx-auto px-4">
+        <div class="__col grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
+            
+            @if (!empty($g_content['image']))
+                <div data-gsap-element="img" class="__img order1 w-full">
+                    <img class="object-cover w-full h-full aspect-[3/2] md:aspect-square rounded-2xl" 
+                         src="{{ $g_content['image']['url'] }}" 
+                         alt="{{ $g_content['image']['alt'] ?? '' }}">
 
-			<div class="__content order2 lg:py-10">
-				<h2 data-gsap-element="header" class="text-h4">{{ $g_content['header'] }}</h2>
+						    @if (!empty($g_content['button2']))
+                            <x-button
+                                :href="$g_content['button2']['url']"
+                                variant="primary"
+                                data-gsap-element="btn"
+								class="mt-16">
+                                {{ $g_content['button2']['title'] }}
+                            </x-button>
+                        @endif
+                </div>
+            @endif
 
-				<div data-gsap-element="txt" class="__txt mt-4">
-					{!! $g_content['txt'] !!}
-				</div>
+            <div class="__content order2 flex flex-col justify-center w-full text-left">
+                
+                @if(!empty($g_content['header']))
+                    <h2 data-gsap-element="header" class="text-primary text-3xl lg:text-4xl font-bold mb-6">
+                        {{ $g_content['header'] }}
+                    </h2>
+                @endif
 
-				<div class="inline-buttons m-btn">
-					@if (!empty($g_content['button1']))
-					<x-button
-						:href="$g_content['button1']['url']"
-						variant="primary"
-						class=""
-						data-gsap-element="btn">
-						{{ $g_content['button1']['title'] }}
-					</x-button>
-					@endif
+                @if(!empty($g_content['txt']))
+                    <div data-gsap-element="txt" class="__txt text-carbon">
+                        {!! $g_content['txt'] !!}
+                    </div>
+                @endif
 
-					@if (!empty($g_content['button2']))
-					<x-button
-						:href="$g_content['button2']['url']"
-						variant="secondary"
-						class=""
-						data-gsap-element="btn">
-						{{ $g_content['button2']['title'] }}
-					</x-button>
-					@endif
-				</div>
+                
 
-			</div>
+                @if (!empty($g_content['button1']) || !empty($g_content['button2']))
+                    <div class="inline-buttons m-btn flex gap-4 mt-2">
+                        @if (!empty($g_content['button1']))
+                            <x-button
+                                :href="$g_content['button1']['url']"
+                                variant="primary"
+                                data-gsap-element="btn">
+                                {{ $g_content['button1']['title'] }}
+                            </x-button>
+                        @endif
 
-		</div>
-	</div>
+                     
+                    </div>
+                @endif
 
+            </div> 
+
+        </div> 
+    </div> 
 </section>

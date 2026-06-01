@@ -1,21 +1,21 @@
 {
-  "_pagination-DEisu31g.js": {
-    "file": "assets/pagination-DEisu31g.js",
+  "_pagination-UScTrRJn.css": {
+    "file": "assets/pagination-UScTrRJn.css",
+    "src": "_pagination-UScTrRJn.css"
+  },
+  "_pagination-kw9n6b9n.js": {
+    "file": "assets/pagination-kw9n6b9n.js",
     "name": "pagination",
     "css": [
       "assets/pagination-UScTrRJn.css"
     ]
-  },
-  "_pagination-UScTrRJn.css": {
-    "file": "assets/pagination-UScTrRJn.css",
-    "src": "_pagination-UScTrRJn.css"
   },
   "editor.deps.json": {
     "file": "assets/editor.deps-DxpY22xl.json",
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-OvaD7_9G.css",
+    "file": "assets/app-C6VxBP7H.css",
     "name": "app",
     "names": [
       "app.css"
@@ -24,7 +24,7 @@
     "isEntry": true
   },
   "resources/css/editor.css": {
-    "file": "assets/editor-u9hISOlh.css",
+    "file": "assets/editor-BJE_qau_.css",
     "name": "editor",
     "names": [
       "editor.css"
@@ -33,7 +33,7 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-DJBcBb53.js",
+    "file": "assets/app-BQRDeY4n.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -45,40 +45,40 @@
     ]
   },
   "resources/js/blocks/hero-sub.js": {
-    "file": "assets/hero-sub-BiWe7qMj.js",
+    "file": "assets/hero-sub-BKAt4Nq8.js",
     "name": "hero-sub",
     "src": "resources/js/blocks/hero-sub.js",
     "isDynamicEntry": true
   },
   "resources/js/blocks/reviews.js": {
-    "file": "assets/reviews-DbUn0XBn.js",
+    "file": "assets/reviews-BE6X_yCY.js",
     "name": "reviews",
     "src": "resources/js/blocks/reviews.js",
     "isDynamicEntry": true,
     "imports": [
-      "_pagination-DEisu31g.js"
+      "_pagination-kw9n6b9n.js"
     ]
   },
   "resources/js/blocks/slider.js": {
-    "file": "assets/slider-x-zV5XBd.js",
+    "file": "assets/slider-BAqNJzV2.js",
     "name": "slider",
     "src": "resources/js/blocks/slider.js",
     "isDynamicEntry": true,
     "imports": [
-      "_pagination-DEisu31g.js"
+      "_pagination-kw9n6b9n.js"
     ],
     "css": [
       "assets/slider-x1XGuNl0.css"
     ]
   },
   "resources/js/blocks/tabs.js": {
-    "file": "assets/tabs-DHLaxzBo.js",
+    "file": "assets/tabs-C-UqMWKO.js",
     "name": "tabs",
     "src": "resources/js/blocks/tabs.js",
     "isDynamicEntry": true
   },
   "resources/js/editor.js": {
-    "file": "assets/editor-Dqo-zVGR.js",
+    "file": "assets/editor-DRWDEw-3.js",
     "name": "editor",
     "src": "resources/js/editor.js",
     "isEntry": true

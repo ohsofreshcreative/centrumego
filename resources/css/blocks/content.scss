@@ -1,75 +1,110 @@
 .b-content {
-  .__txt {
-	h6 {
-		display: block;
-		margin-bottom:16px;
-		color:var(--color-gray-600);
+	.__txt {
+
+		h6 {
+			display: block;
+			margin-bottom: 16px;
+			color: var(--color-gray-600);
+		}
+
+
+		p:first-of-type {
+			margin-bottom: 24px;
+			font-size: 20px !important;
+		}
+
+		p {
+			margin-bottom: 16px;
+			font-weight: 500;
+		}
+
+		p:last-child {
+			margin-bottom: 0 !important;
+			font-weight: 600 !important;
+		}
+
+		blockquote {
+
+			position: relative;
+			margin-top: 70px;
+			margin-bottom: -40px;
+				p {
+				font-family: var(--header) !important;
+				font-size: 24px !important;
+
+			&::before {
+				content: url('http://centrumego.local/wp-content/uploads/2026/05/quote.svg');
+				position: absolute;
+				top: -30px;
+				left: -30px;
+				width: 4px;
+				height: 100%;
+			}
+
+			}
+		}
+
+		ul {
+			margin-top: 20px;
+			margin-bottom: 24px;
+			list-style: none;
+			padding-left: 0;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			li {
+				position: relative;
+				margin-bottom: 0.5em;
+				display: flex;
+				gap: 12px;
+				align-items: center;
+
+				&::before {
+					content: url('http://centrumego.local/wp-content/uploads/2026/05/arrow.svg');
+					position: relative;
+					left: 0;
+					top: -3px;
+					width: 14px;
+					height: 14px;
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+				}
+			}
+		}
 	}
-    p {
-      margin-bottom: 16px;
-    }
 
-    p:last-child {
-      margin-bottom: 0 !important;
-    }
-
-    ul {
-      margin-top: 8px;
-      margin-bottom: 24px;
-      list-style: none;
-      padding-left: 0;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      li {
-        position: relative;
-        margin-bottom: 0.5em;
-        display: flex;
-        gap: 8px;
-        align-items: center;
-
-        &::before {
-          content: url('/wp-content/uploads/2026/01/double-arrow.svg');
-		  position: relative;
-          left: 0;
-          top: -3px;
-          width: 14px;
-          height: 14px;
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-      }
-    }
-  }
+	&.__content_bottom {
+		.__content {
+			align-self: flex-end
+		}
+	}
 }
-
-
 
 /*--- BRAK PUNKTATORÓW ---*/
 
 .b-content.no-list {
-  .__txt {
-    ul {
-      margin-top: 8px;
-      margin-bottom: 24px;
-      list-style: none;
-      padding-left: 0;
+	.__txt {
+		ul {
+			margin-top: 8px;
+			margin-bottom: 24px;
+			list-style: none;
+			padding-left: 0;
 
-      li {
-        position: relative;
-        display: inline-block;
+			li {
+				position: relative;
+				display: inline-block;
 
-        &::before {
-          content: '•';
-          position: relative;
-          left: 0;
-          top: 0;
-          margin-right: 8px;
-        }
-      }
-    }
-  }
+				&::before {
+					content: url('http://centrumego.local/wp-content/uploads/2026/05/Vector.svg');
+					position: relative;
+					left: 0;
+					top: 0;
+					margin-right: 8px;
+				}
+			}
+		}
+	}
 }

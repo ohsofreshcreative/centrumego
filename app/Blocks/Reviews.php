@@ -8,7 +8,7 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 class Reviews extends Block
 {
 	public $name = 'Slider - Opinie';
-	public $description = 'reviews';
+	public $description = 'Pobiera i wyświetla opinie z Options Page';
 	public $slug = 'reviews';
 	public $category = 'formatting';
 	public $icon = 'format-quote';
@@ -25,53 +25,26 @@ class Reviews extends Block
 		$reviews = new FieldsBuilder('reviews');
 
 		$reviews
-			->setLocation('block', '==', 'acf/reviews') // ważne!
 			->addText('block-title', [
-				'label' => 'Tytuł',
+				'label' => 'Tytuł (lokalny nagłówek)',
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Slider - Opinie',
+				'label' => 'Ustawienia i informacje',
 				'open' => false,
 				'multi_expand' => true,
 			])
-			/*--- FIELDS ---*/
-			->addTab('Treści', ['placement' => 'top'])
-			->addGroup('g_reviews', ['label' => ''])
-			->addText('title', ['label' => 'Tytuł'])
-			->addWysiwyg('text', ['label' => 'Opis', 'media_upload' => 0, 'tabs' => 'visual'])
-			->endGroup()
 
-			/*--- OPINIE ---*/
+			->addMessage('Informacja', 'Treści i listę opinii edytujesz globalnie w zakładce **"Opinie"** w menu bocznym WordPressa.')
 
-			->addTab('Opinie', ['placement' => 'top'])
-			->addRepeater('r_reviews', [
-				'label' => 'Slider - Opinie',
-				'layout' => 'table', // 'row', 'block', albo 'table'
-				'min' => 1,
-				'max' => 15,
-				'button_label' => 'Dodaj kafelek'
-			])
-			->addTextarea('txt', [
-				'label' => 'Opis',
-				'rows' => 4,
-				'new_lines' => 'br',
-			])
-			->addText('name', [
-				'label' => 'Klient',
-			])
-			->endRepeater()
-
-			/*--- USTAWIENIA BLOKU ---*/
-
+			/*--- USTAWIENIA WIZUALNE BLOKU ---*/
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
 			->addText('section_id', [
-				'label' => 'ID',
+				'label' => 'ID sekcji',
 			])
 			->addText('section_class', [
 				'label' => 'Dodatkowe klasy CSS',
 			])
-
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
 				'ui' => 1,
@@ -121,17 +94,23 @@ class Reviews extends Block
 	public function with()
 	{
 		return [
-			'g_reviews' => get_field('g_reviews'),
-			'r_reviews' => get_field('r_reviews'),
-			'section_id' => get_field('section_id'),
+			// Dane pobierane globalnie z Options Page:
+			'g_reviews'     => get_field('g_reviews', 'option'),
+			'r_reviews'     => get_field('r_reviews', 'option'),
+			'global_link_google' => get_field('global_link_google', 'option'),
+			'global_link_znanylekarz' => get_field('global_link_znanylekarz', 'option'),
+
+			// Ustawienia pobierane lokalnie z danego bloku na stronie:
+			'block_title'   => get_field('block-title'),
+			'section_id'    => get_field('section_id'),
 			'section_class' => get_field('section_class'),
-			'flip' => get_field('flip'),
-			'wide' => get_field('wide'),
-			'nomt' => get_field('nomt'),
-			'lightbg' => get_field('lightbg'),
-			'graybg' => get_field('graybg'),
-			'whitebg' => get_field('whitebg'),
-			'brandbg' => get_field('brandbg'),
+			'flip'          => get_field('flip'),
+			'wide'          => get_field('wide'),
+			'nomt'          => get_field('nomt'),
+			'lightbg'       => get_field('lightbg'),
+			'graybg'        => get_field('graybg'),
+			'whitebg'       => get_field('whitebg'),
+			'brandbg'       => get_field('brandbg'),
 		];
 	}
 

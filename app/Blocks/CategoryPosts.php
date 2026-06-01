@@ -46,6 +46,17 @@ class CategoryPosts extends Block
 				'new_lines' => 'br',
 			])
 
+			->addSelect('post_type', [
+				'label' => 'Typ wpisow',
+				'choices' => [
+					'post' => 'Blog (post)',
+					'problems' => 'Problems (CPT)',
+				],
+				'default_value' => 'post',
+				'allow_null' => 0,
+				'ui' => 1,
+			])
+
 			->addLink('button', [
 				'label' => 'Przycisk',
 				'return_format' => 'array',
@@ -97,7 +108,7 @@ class CategoryPosts extends Block
 				'ui_off_text' => 'Nie',
 			])
 			->addTrueFalse('gap', [
-				'label' => 'Większy odstęp',
+				'label' => 'Większy odstęp',		
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
@@ -132,14 +143,15 @@ class CategoryPosts extends Block
 
 	public function with()
 	{
-		$posts_settings = get_field('posts_settings');
+		$posts_settings = get_field('posts_settings') ?: [];
+		$post_type = $posts_settings['post_type'] ?? 'post';		
 		$show_image = $posts_settings['show_image'] ?? true;
 		$show_excerpt = $posts_settings['show_excerpt'] ?? false;
 
-		// Get posts from the selected category
+		// Load latest entries from selected post type (blog or CPT problems)
 		$args = [
-			'post_type' => 'post',
-			'posts_per_page' => 6,
+			'post_type' => $post_type,
+			'posts_per_page' => 8,
 			'post_status' => 'publish',
 			'orderby' => 'date',
 			'order' => 'DESC',
@@ -149,7 +161,7 @@ class CategoryPosts extends Block
 		$posts = $query->posts;
 
 		return [
-			'posts_settings' => get_field('posts_settings'),
+			'posts_settings' => $posts_settings,
 			'posts' => $posts,
 			'show_image' => $show_image,
 			'show_excerpt' => $show_excerpt,
