@@ -21,31 +21,21 @@
 			<img class="absolute left-1/2 -translate-x-1/2 top-10" src="{{ $g_proces['image']['url'] }}" alt="{{ $g_proces['image']['alt'] ?? '' }}" />
 		</div>
 
-		@if (!empty($r_proces))
-        @php
-            $repeater_count = count($r_proces);
-            $grid_class = 'lg:grid-cols-4'; // Domyślna klasa
-            if ($repeater_count === 3) {
-                $grid_class = 'lg:grid-cols-3';
-            }
-        @endphp
-		<div class="__repeater gap-8 grid grid-cols-1 md:grid-cols-2 {{ $grid_class }} mt-16">
-
+		<div class="flex flex-col gap-6 mt-10">
 			@foreach ($r_proces as $item)
-			<div data-gsap-element="stagger" class="flex flex-col radius bg-secondary-lighter overflow-hidden pt-6 pb-40 px-6">
-				<div class="relative z-20">
-					<div class="text-h2 font-header text-secondary-dark">{{ $item['number'] }}</div>
-
-					<p class="font-header text-h6 text-secondary-dark mt-4">{{ $item['title'] }}</p>
-					<p class="mt-2">{!! $item['txt'] !!}</p>
-				</div>
-
-				<img class="absolute -bottom-6 -right-6 z-10" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
+			<div data-gsap-element="card" class="__card relative bg-white p-8">
+				@if (!empty($item['image']['url']))
+				<img class="mb-6" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
+				@endif
+				@if (!empty($item['title']))
+				<p class="text-h5">{{ $item['title'] }}</p>
+				@endif
+				@if (!empty($item['text']))
+				<p class="">{{ $item['text'] }}</p>
+				@endif
 			</div>
 			@endforeach
 		</div>
-		<div class="__line absolute bg-primary z-0 origin-left scale-x-0"></div>
-		@endif
 	</div>
 
 </section>

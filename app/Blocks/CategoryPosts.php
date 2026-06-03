@@ -4,6 +4,8 @@ namespace App\Blocks;
 
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
+use App\Support\SectionClasses;
+
 
 class CategoryPosts extends Block
 {
@@ -108,47 +110,40 @@ class CategoryPosts extends Block
 				'ui_off_text' => 'Nie',
 			])
 			->addTrueFalse('gap', [
-				'label' => 'Większy odstęp',		
+				'label' => 'Większy odstęp',
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			])
-			->addTrueFalse('lightbg', [
-				'label' => 'Jasne tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('graybg', [
-				'label' => 'Szare tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('whitebg', [
-				'label' => 'Białe tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('brandbg', [
-				'label' => 'Tło marki',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
+			->addSelect('background', [
+				'label' => 'Kolor tła',
+				'choices' => [
+					'none' => 'Brak (domyślne)',
+					'section-white' => 'Białe',
+					'section-light' => 'Jasne',
+					'section-gray' => 'Szare',
+					'section-brand' => 'Marki',
+					'section-gradient' => 'Gradient',
+					'section-dark' => 'Ciemne',
+					'section-soft-blue' => 'Jasnoniebieskie (#F4F9FF)',
+					'section-lighter-grad' => 'Gradient Pionowy (Lighter)',
+					'section-light-horizontal' => 'Gradient Poziomy',
+				],
+				'default_value' => 'none',
+				'ui' => 0, // Ulepszony interfejs 
+				'allow_null' => 0,
 			]);
 
 		return $categoryPosts;
 	}
 
-	public function with()
+	public function with(): array
 	{
 		$posts_settings = get_field('posts_settings') ?: [];
-		$post_type = $posts_settings['post_type'] ?? 'post';		
-		$show_image = $posts_settings['show_image'] ?? true;
-		$show_excerpt = $posts_settings['show_excerpt'] ?? false;
+		$post_type = $posts_settings['post_type'] ?? 'post';
+		$show_image = array_key_exists('show_image', $posts_settings) ? (bool) $posts_settings['show_image'] : true;
+		$show_excerpt = array_key_exists('show_excerpt', $posts_settings) ? (bool) $posts_settings['show_excerpt'] : false;
 
-		// Load latest entries from selected post type (blog or CPT problems)
 		$args = [
 			'post_type' => $post_type,
 			'posts_per_page' => 8,
@@ -160,21 +155,31 @@ class CategoryPosts extends Block
 		$query = new \WP_Query($args);
 		$posts = $query->posts;
 
-		return [
+		$fields = [
 			'posts_settings' => $posts_settings,
 			'posts' => $posts,
 			'show_image' => $show_image,
 			'show_excerpt' => $show_excerpt,
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
-			'flip' => get_field('flip'),
-			'wide' => get_field('wide'),
-			'nomt' => get_field('nomt'),
-			'gap' => get_field('gap'),
+			'flip' => (bool) get_field('flip'),
+			'wide' => (bool) get_field('wide'),
+			'nomt' => (bool) get_field('nomt'),
+			'gap' => (bool) get_field('gap'),
 			'lightbg' => get_field('lightbg'),
 			'graybg' => get_field('graybg'),
 			'whitebg' => get_field('whitebg'),
 			'brandbg' => get_field('brandbg'),
+			'background' => get_field('background') ?: 'none',
 		];
+
+		$fields['sectionClass'] = SectionClasses::fromMap($fields, [
+			'flip' => 'order-flip',
+			'wide' => 'wide',
+			'nomt' => '!mt-0',
+			'gap' => 'wider-gap',
+		]);
+
+		return $fields;
 	}
 }

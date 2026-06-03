@@ -3,15 +3,14 @@
 namespace App\Options;
 
 use Log1x\AcfComposer\Options;
-use StoutLogic\AcfBuilder\FieldsBuilder;
+use StoutLogic\AcfBuilder\FieldsBuilder; 
+
 
 class CtaBgOptions extends Options
 {
     // Nazwa widoczna w menu WP
     public $name = 'CTA '; 
-    
     public $slug = 'cta-bg-options'; 
-    
     public $title = ' CTA ';
     public $capability = 'edit_posts';
     public $redirect = false;

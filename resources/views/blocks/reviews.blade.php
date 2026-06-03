@@ -11,7 +11,14 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
 
 <!--- reviews --->
 
-<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-reviews -smt {{ $sectionClass }} {{ $section_class }}">
+<section
+	data-gsap-anim="section"
+	@if(!empty($section_id)) id="{{ $section_id }}" @endif
+	@class([ 'b-reviews relative -smt' ,
+	$sectionClass=> filled($sectionClass),
+	$section_class => filled($section_class),
+	$background => filled($background) && $background !== 'none',
+	])>
 	<div class="__wrapper c-main">
 		<div class="__content">
 			<div data-gsap-element="header" class="__wrapper block w-full md:w-1/2 pb-10">
@@ -20,26 +27,26 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
 			</div>
 
 			<div class="swiper reviews-swiper !overflow-visible">
-				<div data-gsap-element="swiper" class="swiper-wrapper">
+				<div data-gsap-element="swiper" class="swiper-wrapper ">
 					@foreach($r_reviews as $card)
-					<div class="swiper-slide">
-						<div class="__card relative bg-white radius px-8 py-8">
+					<div class="swiper-slide h-full items-stretch flex flex-col">
+						<div class="__card relative bg-white radius px-8 py-8 h-full">
 
-							<div class="relative z-10 flex flex-col gap-4 ">
+							<div class="relative z-10 flex flex-col gap-4 h-full ">
 
 								@if(!empty($card['txt']))
-								{{-- Kontener dla tekstu i przycisku --}}
-								<div class="review-content-wrapper">
-									{{-- Dodajemy klasę 'line-clamp-6' do ograniczenia tekstu --}}
+
+								<div class="review-content-wrapper ">
+
 									<div class="__txt line-clamp-6 text-carbon leading-6 ">{!! $card['txt'] !!}</div>
-									{{-- Przycisk 'Zobacz całość', początkowo ukryty --}}
-									<button class="btn-more  underline text-[#8A8B8F] font-bold mt-2 cursor-pointer">Zobacz całość</button>
+
+									<button class="btn-more   underline text-[#8A8B8F] font-bold mt-2 cursor-pointer">Zobacz całość</button>
 								</div>
 								@endif
 
 
-								<b class="font-header text-xl">{{ $card['name'] }}</b>
-								<div class="flex items-center gap-4">
+								<b class="font-header text-xl mt-auto">{{ $card['name'] }}</b>
+								<div class="flex items-center gap-4 mt-auto">
 									<img class="max-w-1/2" src="/wp-content/uploads/2026/05/stars.svg" />
 
 									@php

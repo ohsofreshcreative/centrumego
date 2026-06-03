@@ -4,6 +4,7 @@ namespace App\Blocks;
 
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
+use App\Support\SectionClasses;
 
 class Reviews extends Block
 {
@@ -86,7 +87,24 @@ class Reviews extends Block
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
-			]);
+			])
+			 ->addSelect('background', [
+                'label' => 'Kolor tła',
+                'choices' => [
+                    'none' => 'Brak (domyślne)',
+                    'section-white' => 'Białe',
+                    'section-light' => 'Jasne',
+                    'section-gray' => 'Szare',
+                    'section-brand' => 'Marki',
+                    'section-gradient' => 'Gradient',
+                    'section-dark' => 'Ciemne',
+					'section-soft-blue' => 'Jasnoniebieskie (#F4F9FF)',
+					'section-lighter-grad' => 'Gradient Pionowy (Lighter)',
+					'section-light-horizontal' => 'Gradient Poziomy',
+                ],
+                'default_value' => 'none',
+                'allow_null' => 0,
+            ]);
 
 		return $reviews;
 	}
@@ -111,6 +129,7 @@ class Reviews extends Block
 			'graybg'        => get_field('graybg'),
 			'whitebg'       => get_field('whitebg'),
 			'brandbg'       => get_field('brandbg'),
+			'background'  => get_field('background') ?: 'none',
 		];
 	}
 

@@ -1,41 +1,47 @@
-.b-content {
-		.blur {
+.b-boxes {
+	.blur {
 		position: absolute;
-		border-radius: 400px;
+		top: -10%;
+		left: -10%;
 		width: 400px;
 		height: 400px;
-		right: -15%;
-		top: -15%;
-		opacity: 0.3;
-		background: var(--colors-bg-secondary, #007AC2);
+		border-radius: 400px;
+		opacity: 0.1;
 		filter: blur(125px);
+		background: var(--colors-bg-secondary, #007AC2);
+		pointer-events: none;
 	}
-	.__txt {
+		.blur-right {
+			position: absolute;
+			bottom: -10%;
+			right: -10%;
+			width: 400px;
+			height: 400px;
+			border-radius: 400px;
+			opacity: 0.1;
+			filter: blur(125px);
+			background: var(--colors-bg-secondary, #007AC2);
+			pointer-events: none;
+		
+	}
 
+	.__txt {
 		h6 {
 			display: block;
 			margin-bottom: 16px;
 			color: var(--color-gray-600);
 		}
 
-
-		p:first-of-type {
-			margin-bottom: 24px;
-			font-size: 20px !important;
-		}
-
 		p {
 			margin-bottom: 16px;
-			font-weight: 500;
 		}
 
 		p:last-child {
 			margin-bottom: 0 !important;
-			font-weight: 600 !important;
 		}
 
 		ul {
-			margin-top: 20px;
+			margin-top: 8px;
 			margin-bottom: 24px;
 			list-style: none;
 			padding-left: 0;
@@ -48,11 +54,12 @@
 				position: relative;
 				margin-bottom: 0.5em;
 				display: flex;
-				gap: 12px;
+				gap: 16px;
 				align-items: center;
+				color: var(--color-secondary);
 
 				&::before {
-					content: url('http://centrumego.local/wp-content/uploads/2026/05/arrow.svg');
+					content: url('http://centrumego.local/wp-content/uploads/2026/05/Vector.svg');
 					position: relative;
 					left: 0;
 					top: -3px;
@@ -65,17 +72,13 @@
 			}
 		}
 	}
-
-	&.__content_bottom {
-		.__content {
-			align-self: flex-end
-		}
-	}
 }
+
+
 
 /*--- BRAK PUNKTATORÓW ---*/
 
-.b-content.no-list {
+.b-boxes .no-list {
 	.__txt {
 		ul {
 			margin-top: 8px;
@@ -88,7 +91,7 @@
 				display: inline-block;
 
 				&::before {
-					content: url('http://centrumego.local/wp-content/uploads/2026/05/Vector.svg');
+					content: '.';
 					position: relative;
 					left: 0;
 					top: 0;

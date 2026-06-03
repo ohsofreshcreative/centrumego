@@ -1,0 +1,57 @@
+.b-about {
+	.blur {
+		position: absolute;
+		border-radius: 400px;
+		width: 400px;
+		height: 400px;
+		right: -5%;
+		bottom: -15%;
+		opacity: 0.15;
+		background: var(--colors-bg-third, #FF3437);
+		filter: blur(125px);
+	}
+
+	.__txt {
+		p:first-of-type {
+			margin-bottom: 24px;
+			font-size: 20px !important;
+		}
+
+		p {
+			margin-bottom: 16px;
+			font-weight: 500;
+		}
+
+		p:last-child {
+			margin-bottom: 0 !important;
+			font-weight: 600 !important;
+		}
+
+		blockquote {
+			position: relative;
+			margin-top: 70px;
+			margin-bottom: -40px;
+
+			p {
+				font-family: var(--header) !important;
+				font-size: 24px !important;
+
+				&::before {
+					content: url('http://centrumego.local/wp-content/uploads/2026/05/quote.svg');
+					position: absolute;
+					top: -30px;
+					left: -30px;
+					width: 4px;
+					height: 100%;
+				}
+			}
+		}
+	}
+
+
+	&.__content_bottom {
+		.__content {
+			align-self: flex-end
+		}
+	}
+}

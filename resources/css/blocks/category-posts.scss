@@ -1,4 +1,16 @@
 .b-category-posts {
+	.blur {
+		position: absolute;
+		border-radius: 400px;
+		width: 400px;
+		height: 400px;
+		right: -15%;
+		top: -10%;
+		opacity: 0.3;
+		background: var(--colors-bg-third, #FF3437);
+		filter: blur(125px);
+	}
+
 	ul {
 		margin-top: 8px;
 		margin-bottom: 24px;

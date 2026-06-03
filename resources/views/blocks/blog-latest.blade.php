@@ -11,7 +11,7 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
 @endphp
 
 <div data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="block-blog-latest bg-[#f4f8fc] py-16 lg:py-24 -smt {{ $sectionClass }} {{ $section_class }}">
-    <div class="c-main max-w-[1200px] mx-auto px-4">
+    <div class="c-main">
 
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
                 <h2 data-gsap-element="header" class="text-primary ">

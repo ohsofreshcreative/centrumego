@@ -4,12 +4,13 @@ namespace App\Blocks;
 
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
+use App\Support\SectionClasses;
 
-class Duotitle extends Block
+class Partnership extends Block
 {
-    public $name = 'Treść oraz zdjęcie (duotitle)';
-    public $description = 'duotitle';
-    public $slug = 'duotitle';
+    public $name = 'Treść, zdjęcie i kafelki (partnership)';
+    public $description = 'partnership';
+    public $slug = 'partnership';
     public $category = 'formatting';
     public $icon = 'align-pull-left';
     public $keywords = ['tresc', 'zdjecie'];
@@ -24,22 +25,22 @@ class Duotitle extends Block
 
     public function fields()
     {
-        $duotitle = new FieldsBuilder('duotitle');
+        $partnership = new FieldsBuilder('partnership');
 
-        $duotitle
-            ->setLocation('block', '==', 'acf/duotitle')
+        $partnership
+            ->setLocation('block', '==', 'acf/partnership')
             ->addText('block-title', [
                 'label' => 'Tytuł',
                 'required' => 0,
             ])
             ->addAccordion('accordion1', [
-                'label' => 'Treść oraz zdjęcie (duotitle)',
+                'label' => 'Treść oraz zdjęcie (partnership)',
                 'open' => false,
                 'multi_expand' => true,
             ])
 
             ->addTab('Elementy', ['placement' => 'top'])
-            ->addGroup('g_duotitle', ['label' => ''])
+            ->addGroup('g_partnership', ['label' => ''])
             ->addImage('image', [
                 'label' => 'Obraz',
                 'return_format' => 'array',
@@ -70,7 +71,7 @@ class Duotitle extends Block
             ->endGroup()
 
             ->addTab('Kafelki', ['placement' => 'top'])
-            ->addRepeater('r_duotitle', [
+            ->addRepeater('r_partnership', [
                 'label' => 'Kafelki',
                 'layout' => 'table',
                 'min' => 1,
@@ -88,12 +89,13 @@ class Duotitle extends Block
             ->addTextarea('card_text', [
                 'label' => 'Opis',
             ])
-			  ->addTextarea('card_text_bottom', [
+			  ->addText('card_text_bottom', [
                 'label' => 'Dolny text',
             ])
            
             ->endRepeater()
 
+           /*--- USTAWIENIA BLOKU ---*/
             ->addTab('Ustawienia bloku', ['placement' => 'top'])
             ->addText('section_id', [
                 'label' => 'ID',
@@ -101,8 +103,14 @@ class Duotitle extends Block
             ->addText('section_class', [
                 'label' => 'Dodatkowe klasy CSS',
             ])
+            ->addTrueFalse('nolist', [
+                'label' => 'Brak punktatorów',
+                'ui' => 1,
+                'ui_on_text' => 'Tak',
+                'ui_off_text' => 'Nie',
+            ])
             ->addTrueFalse('flip', [
-                'label' => 'Odwrotna kolejność',
+                'label' => 'Odwrotna kolejność (zdjęcie po prawej)',
                 'ui' => 1,
                 'ui_on_text' => 'Tak',
                 'ui_off_text' => 'Nie',
@@ -125,49 +133,50 @@ class Duotitle extends Block
                 'ui_on_text' => 'Tak',
                 'ui_off_text' => 'Nie',
             ])
-            ->addTrueFalse('lightbg', [
-                'label' => 'Jasne tło',
-                'ui' => 1,
-                'ui_on_text' => 'Tak',
-                'ui_off_text' => 'Nie',
-            ])
-            ->addTrueFalse('graybg', [
-                'label' => 'Szare tło',
-                'ui' => 1,
-                'ui_on_text' => 'Tak',
-                'ui_off_text' => 'Nie',
-            ])
-            ->addTrueFalse('whitebg', [
-                'label' => 'Białe tło',
-                'ui' => 1,
-                'ui_on_text' => 'Tak',
-                'ui_off_text' => 'Nie',
-            ])
-            ->addTrueFalse('brandbg', [
-                'label' => 'Tło marki',
-                'ui' => 1,
-                'ui_on_text' => 'Tak',
-                'ui_off_text' => 'Nie',
+            ->addSelect('background', [
+                'label' => 'Kolor tła',
+                'choices' => [
+                    'none' => 'Brak (domyślne)',
+                    'section-white' => 'Białe',
+                    'section-light' => 'Jasne',
+                    'section-gray' => 'Szare',
+                    'section-brand' => 'Marki',
+                    'section-gradient' => 'Gradient',
+                    'section-dark' => 'Ciemne',
+                ],
+
+                'default_value' => 'none',
+                'allow_null' => 0,
             ]);
 
-        return $duotitle;
+        return $partnership;
     }
 
-    public function with()
+    public function with(): array
     {
-        return [
-            'g_duotitle'    => get_field('g_duotitle'),
-            'r_duotitle'    => get_field('r_duotitle'),
-            'section_id'    => get_field('section_id'),
+        $fields = [
+            'g_partnership' => get_field('g_partnership'),
+			'r_partnership' => get_field('r_partnership'),
+            'section_id' => get_field('section_id'),
             'section_class' => get_field('section_class'),
-            'flip'          => get_field('flip'),
-            'wide'          => get_field('wide'),
-            'nomt'          => get_field('nomt'),
-            'gap'           => get_field('gap'),
-            'lightbg'       => get_field('lightbg'),
-            'graybg'        => get_field('graybg'),
-            'whitebg'       => get_field('whitebg'),
-            'brandbg'       => get_field('brandbg'),
+
+            'flip' => (bool) get_field('flip'),
+            'wide' => (bool) get_field('wide'),
+            'nomt' => (bool) get_field('nomt'),
+            'gap' => (bool) get_field('gap'),
+
+            'background' => get_field('background') ?: 'none',
         ];
+
+        $fields['sectionClass'] = SectionClasses::fromMap($fields, [
+            'flip' => 'order-flip',
+            'wide' => 'wide',
+            'nomt' => '!mt-0',
+            'gap' => 'wider-gap',
+        ]);
+
+        return $fields;
     }
+
+	
 }

@@ -61,6 +61,7 @@ class Hero extends Block
 			])
 
 			->endGroup()
+			/*--- TAB #2 ---*/
 			->addTab('Kafelki', ['placement' => 'top'])
 			->addText('title', [
 				'label' => 'Tytuł kafelków',
@@ -89,17 +90,18 @@ class Hero extends Block
 				'label' => 'Przycisk',
 				'return_format' => 'array',
 			])
-	->addSelect('tile_bg', [
-                'label' => 'Kolor tła kafelka',
-                'choices' => [
-                    'bg-secondary text-white' => 'Jasnoniebieski (#007AC2)',
-                    'bg-primary text-white'   => 'Granatowy (#0A397C)',
-                    'bg-primary-800 text-white' => 'Ciemnogranatowy (#051D3E)',
-                    'bg-white text-body'      => 'Biały (Domyślny)',
-                ],
-                'default_value' => 'bg-white text-body',
-                'ui' => 1,
-            ])
+			->addSelect('tile_bg', [
+				'label' => 'Kolor tła kafelka',
+				'choices' => [
+					'bg-secondary text-white' => 'Jasnoniebieski (#007AC2)',
+					'bg-primary text-white'   => 'Granatowy (#0A397C)',
+					'bg-primary-800 text-white' => 'Ciemnogranatowy (#051D3E)',
+					'bg-white text-body'      => 'Biały (Domyślny)',
+					
+				],
+				'default_value' => 'bg-white text-body',
+				'ui' => 1,
+			])
 			->endRepeater()
 
 
@@ -152,6 +154,9 @@ class Hero extends Block
 					'section-brand' => 'Marki',
 					'section-gradient' => 'Gradient',
 					'section-dark' => 'Ciemne',
+					'section-soft-blue' => 'Jasnoniebieskie (#F4F9FF)',
+					'section-lighter-grad' => 'Gradient Pionowy (Lighter)',
+					'section-light-horizontal' => 'Gradient Poziomy',
 				],
 				'default_value' => 'none',
 				'ui' => 0, // Ulepszony interfejs

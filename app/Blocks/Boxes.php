@@ -6,11 +6,11 @@ use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Support\SectionClasses;
 
-class ContentCards extends Block
+class Boxes extends Block
 {
 	public $name = 'Tekst, zdjęcie i kafelki';
-	public $description = 'content-cards';
-	public $slug = 'content-cards';
+	public $description = 'boxes - tekst, zdjęcie i kafelki';
+	public $slug = 'boxes';
 	public $category = 'formatting';
 	public $icon = 'align-pull-left';
 	public $keywords = ['tresc', 'zdjecie'];
@@ -25,10 +25,10 @@ class ContentCards extends Block
 
 	public function fields()
 	{
-		$content = new FieldsBuilder('content-cards');
+		$boxes = new FieldsBuilder('boxes');
 
-		$content
-			->setLocation('block', '==', 'acf/content-cards') // ważne!
+		$boxes
+			->setLocation('block', '==', 'acf/boxes') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
@@ -40,7 +40,7 @@ class ContentCards extends Block
 			])
 			/*--- GROUP ---*/
 			->addTab('Elementy', ['placement' => 'top'])
-			->addGroup('g_content', ['label' => ''])
+			->addGroup('g_boxes', ['label' => ''])
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array',
@@ -66,7 +66,7 @@ class ContentCards extends Block
 			->endGroup()
 			/*--- Tabs ---*/
 			->addTab('Kafelki', ['placement' => 'top'])
-			->addRepeater('r_content', [
+			->addRepeater('r_boxes', [
 				'label' => 'Kafelki',
 				'layout' => 'table',
 				'min' => 1,
@@ -87,8 +87,6 @@ class ContentCards extends Block
 			->addLink('card_link', [
 				'label' => 'Przycisk',
 			])
-
-
 			->endRepeater()
 
 
@@ -141,20 +139,23 @@ class ContentCards extends Block
 					'section-brand' => 'Marki',
 					'section-gradient' => 'Gradient',
 					'section-dark' => 'Ciemne',
+					'section-soft-blue' => 'Jasnoniebieskie (#F4F9FF)',
+					'section-lighter-grad' => 'Gradient Pionowy (Lighter)',
+					'section-light-horizontal' => 'Gradient Poziomy',
 				],
 				'default_value' => 'none',
 				'ui' => 0, // Ulepszony interfejs
 				'allow_null' => 0,
 			]);
 
-		return $content;
+		return $boxes;
 	}
 
 	public function with(): array
 	{
 		$fields = [
-			'g_content' => get_field('g_content'),
-			'r_content' => get_field('r_content'),
+			'g_boxes' => get_field('g_boxes'),
+			'r_boxes' => get_field('r_boxes'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
 		

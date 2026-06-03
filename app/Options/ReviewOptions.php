@@ -11,7 +11,7 @@ class ReviewOptions extends Options
 	public $slug = 'review-options';
 	public $title = 'Globalne Zarządzanie Opiniami';
 	public $capability = 'edit_posts';
-	public $redirect = false;
+	public $redirect = false; 
 
 	public function fields(): array
 	{

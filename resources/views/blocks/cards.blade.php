@@ -15,17 +15,7 @@
 			<p data-gsap-element="txt">{{ $g_cards['text'] }}</p>
 		</div>
 
-		@if (!empty($r_cards))
-		@php
-		$itemCount = count($r_cards);
-		$gridCols = 1;
-		if ($itemCount == 2) $gridCols = 2;
-		if ($itemCount == 3) $gridCols = 3;
-		if ($itemCount >= 4) $gridCols = 4; // Twój dotychczasowy warunek
-		$gridClass = $gridCols > 1 ? 'grid-cols-1 lg:grid-cols-' . $gridCols : 'grid-cols-1';
-		@endphp
-
-		<div class="grid {{ $gridClass }} gap-8 mt-10">
+		<div class="grid gap-8 mt-10">
 			@foreach ($r_cards as $item)
 			<div data-gsap-element="card" class="__card relative bg-white p-8">
 				@if (!empty($item['image']['url']))

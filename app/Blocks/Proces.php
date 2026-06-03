@@ -39,44 +39,49 @@ class Proces extends Block
 			/*--- FIELDS ---*/
 			->addTab('Treść', ['placement' => 'top'])
 			->addGroup('g_proces', ['label' => ''])
-			->addText('header', ['label' => 'Nagłówek'])
-			->addWysiwyg('txt', [
-				'label' => 'Opis',
-				'tabs' => 'all', // 'visual', 'text', 'all'
-				'toolbar' => 'full', // 'basic', 'full'
-				'media_upload' => true,
-			])
-			->addImage('image', [
-				'label' => 'Obraz w tle',
-				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'thumbnail',
-			])
-			->endGroup()
-
-			->addTab('Kafelki', ['placement' => 'top'])
-			->addRepeater('r_proces', [
-				'label' => 'proces',
-				'layout' => 'table', // 'row', 'block', albo 'table'
-				'min' => 3,
-				'max' => 4,
-				'button_label' => 'Dodaj element oferty'
-			])
-			->addText('number', [
-				'label' => 'Krok',
-			])
 			->addImage('image', [
 				'label' => 'Obraz',
-				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'medium',
+				'return_format' => 'array',
+				'preview_size' => 'thumbnail',
 			])
-			->addText('title', [
-				'label' => 'Nagłówek',
-			])
+			->addText('header', ['label' => 'Nagłówek'])
 			->addWysiwyg('txt', [
 				'label' => 'Treść',
 				'tabs' => 'all',
 				'toolbar' => 'full',
 				'media_upload' => true,
+			])
+
+			->addLink('button1', [
+				'label' => 'Przycisk #1',
+				'return_format' => 'array',
+			])
+			->endGroup()
+
+			/*--- TAB #2 ---*/
+			->addTab('Kafelki', ['placement' => 'top'])
+			->addRepeater('r_proces', [
+				'label' => 'Kafelki',
+				'layout' => 'table', // 'row', 'block', albo 'table'
+				'min' => 1,
+				'button_label' => 'Dodaj kafelek'
+			])
+			->addImage('image', [
+				'label' => 'Obraz',
+				'return_format' => 'array', // lub 'url', lub 'id'
+				'preview_size' => 'thumbnail',
+			])
+			->addText('title', [
+				'label' => 'Nagłówek',
+			])
+			->addWysiwyg('text', [
+				'label' => 'Treść',
+				'tabs' => 'all',
+				'toolbar' => 'full',
+				'media_upload' => true,
+			])
+			->addText('hint', [
+				'label' => 'Podpowiedź',
 			])
 			->endRepeater()
 

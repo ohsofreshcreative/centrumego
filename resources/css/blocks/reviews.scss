@@ -24,6 +24,27 @@
 	overflow: hidden;
 }
 
+/* Ensure review swiper slides stretch to equal height */
+.b-reviews {
+	.reviews-swiper {
+		.swiper-wrapper {
+			align-items: stretch; /* make flex items (slides) stretch to tallest */
+		}
+
+		.swiper-slide {
+			height: auto; /* let content determine height, then stretch via align-items */
+			display: flex;
+			align-items: stretch;
+		}
+
+		.swiper-slide .__card {
+			height: 100%; /* allow inner card to fill slide height */
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}
+
 // Usuwamy style dla .is-expanded, bo nie będą już potrzebne
 
 .hidden {

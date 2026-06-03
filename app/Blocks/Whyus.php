@@ -4,12 +4,13 @@ namespace App\Blocks;
 
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
+use App\Support\SectionClasses; // Pamiętaj o dodaniu tego importu!
 
 class Whyus extends Block
 {
 	public $name = 'Sekcja: Dlaczego my?';
 	public $description = 'Pobiera i wyświetla dane z Options Page (Dlaczego my)';
-	public $slug = 'why-us-block';
+	public $slug = 'whyus-block';
 	public $category = 'formatting';
 	public $icon = 'groups';
 	public $mode = 'edit';
@@ -19,11 +20,9 @@ class Whyus extends Block
 		'jsx' => true,
 	];
 
-	public $view = 'blocks.whyus-block';
-
 	public function fields()
 	{
-		$whyUsBlock = new FieldsBuilder('why_us_block');
+		$whyUsBlock = new FieldsBuilder('whyus_block');
 
 		$whyUsBlock
 			->addText('block-title', [
@@ -44,10 +43,25 @@ class Whyus extends Block
 	public function with()
 	{
 		return [
-			'title'       => get_field('title', 'option'),
-			'description' => get_field('description', 'option'),
-			'counters'    => get_field('counters', 'option'),
-			'cards'       => get_field('features_cards', 'option'),
+			'title'         => get_field('title', 'option'),
+			'description'   => get_field('description', 'option'),
+			'counters'      => get_field('counters', 'option'),
+			'cards'         => get_field('features_cards', 'option'),
+
+			'section_id'    => get_field('section_id', 'option'),
+			'section_class' => get_field('section_class', 'option'),
+			'background'    => get_field('background', 'option') ?: 'none',
+			'sectionClass'  => SectionClasses::fromMap([
+				'flip' => (bool) get_field('flip', 'option'),
+				'wide' => (bool) get_field('wide', 'option'),
+				'nomt' => (bool) get_field('nomt', 'option'),
+				'gap'  => (bool) get_field('gap', 'option'),
+			], [
+				'flip' => 'order-flip',
+				'wide' => 'wide',
+				'nomt' => '!mt-0',
+				'gap'  => 'wider-gap',
+			]),
 		];
 	}
 }

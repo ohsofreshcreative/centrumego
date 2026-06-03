@@ -386,6 +386,21 @@ body {
 	}
 }
 
+.section-lighter-grad {
+    background: var(--gradient-lighter);
+    padding: var(--smt) 0;
+}
+
+.section-light-horizontal {
+    background: var(--gradient-light-horizontal);
+    padding: var(--smt) 0;
+}
+
+.section-soft-blue {
+    background-color: var(--bg-f4f9ff);
+    padding: var(--smt) 0;
+}
+
 .m-title {
 	padding-bottom: var(--m-title) !important;
 }
@@ -503,6 +518,7 @@ h2,
 .text-h2 {
 	font-size: 48px !important;
 	line-height: 1.1;
+	color: var(--color-primary);
 }
 
 h3,
@@ -577,14 +593,15 @@ h6,
 }
 
 .b-shadow {
+	transition: all 0.3s ease-out;
 	box-shadow: 0px 16px 24px 0px rgb(20, 45, 74, 0.15);
 }
 
 .b-shadow:hover {
-	transform: translateY(-3px);
+	transition: all 0.3s ease-out;
+	transform: translateY(2px);
 	box-shadow: 0px 8px 16px 0px rgba(20, 45, 74, 0.35);
 }
-
 /*--- !BUTTONS ---*/
 
 .btn {
@@ -606,15 +623,15 @@ h6,
 }
 
 .btn-primary {
-	background-color: var(--color-third);
-	border-color: var(--color-third);
-	color: #fff;
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff !important;
 }
 
 .btn-primary:hover {
-	background-color: var(--color-third-hover);
-	border-color: var(--color-third-hover);
-	color: #fff;
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: #fff !important;
 }
 
 .btn-secondary {
@@ -627,6 +644,18 @@ h6,
 	background-color: var(--color-third-hover);
 	border-color: var(--color-third-hover);
 	color: #fff;
+}
+
+.btn-third {
+    background-color: var(--color-third);
+    border-color: var(--color-third);
+    color: #fff !important;
+}
+
+.btn-third:hover {
+    background-color: var(--color-third-hover);
+    border-color: var(--color-third-hover);
+    color: #fff !important;
 }
 
 .btn-underline {
@@ -677,6 +706,16 @@ h6,
 	background-color: var(--color-secondary-hover);
 	color: #fff;
 }
+.btn-outline-third {
+    background-color: transparent;
+    border-color: var(--color-third);
+    color: var(--color-third);
+}
+
+.btn-outline-third:hover {
+    background-color: var(--color-third);
+    color: #fff;
+}
 
 .btn-primary-small {
 	background-color: var(--color-primary);
@@ -706,6 +745,7 @@ h6,
 .pointer {
 	cursor: pointer;
 }
+
 
 /*--- INLINE BUTTONS ---*/
 
@@ -1163,11 +1203,11 @@ article.post:hover {
 		grid-template-columns: repeat(4, 1fr);
 
 		p {
-			color: #fff;
+			color: #12141A;
 		}
 
 		a {
-			color: rgba(255, 255, 255, 0.7);
+			color: #12141A;
 			transition: all 0.3s;
 		}
 
