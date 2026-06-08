@@ -8,7 +8,7 @@
 	$section_class => filled($section_class),
 	$background => filled($background) && $background !== 'none',
 	])>
-<div class="blur"></div>
+	<div class="blur"></div>
 	<div class="c-main">
 		<div class="__content   mb-12">
 			<h2 data-gsap-element="title" class="text-primary  mb-6">{{ $posts_settings['title'] }}</h2>
@@ -28,12 +28,14 @@
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 				@foreach($posts as $post)
 				<div class="group relative bg-white pl-8 py-8 radius b-shadow hover:shadow-md  flex flex-col  text-left h-full">
-					<div class="w-16 h-16 mb-5 flex items-center justify-center bg-primary rounded-full text-white ">
+
+					<div class="w-16 h-16 mb-5 flex items-center justify-center bg-primary rounded-full text-white relative overflow-visible">
+						<span class="absolute top-1 left-1 w-3 h-3 bg-[#037AC2] rounded-full"></span>
+
 						@if($show_image && has_post_thumbnail($post->ID))
 						<img src="{{ get_the_post_thumbnail_url($post->ID, 'thumbnail') }}"
 							alt="{{ get_the_title($post->ID) }}"
 							class="w-8 h-8 object-contain" />
-
 						@endif
 					</div>
 
@@ -43,9 +45,7 @@
 
 					<a href="{{ get_permalink($post->ID) }}" class="text-primary font-semibold inline-flex items-center gap-2.5 mt-auto  transition-colors after:absolute after:inset-0 after:z-10">
 						<span>Dowiedz się więcej</span>
-						<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none" class="shrink-0 transform group-hover:translate-x-1 transition-transform">
-							<path d="M0.190696 1.10947C-0.0631106 0.85566 -0.0637325 0.444215 0.190005 0.190366C0.443846 -0.063475 0.855956 -0.0634751 1.1098 0.190366L9.45471 8.53527L9.45471 1.1949C9.45495 0.836202 9.74578 0.545237 10.1045 0.545107C10.4635 0.545112 10.755 0.836605 10.755 1.19559L10.755 10.1049C10.7549 10.4636 10.4639 10.7543 10.1052 10.7547L1.19523 10.7553C0.836249 10.7553 0.54475 10.4638 0.544746 10.1049C0.544748 9.74588 0.836248 9.45438 1.19523 9.45438L8.5356 9.45437L0.190696 1.10947Z" fill="#FF3437" />
-						</svg>
+						<x-icon.red_arrow class="shrink-0 transform group-hover:translate-x-1 transition-transform text-[#FF3437]" />
 					</a>
 
 				</div>
@@ -59,4 +59,4 @@
 		</div>
 
 	</div>
-	</div>
+</section>

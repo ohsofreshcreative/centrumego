@@ -4,7 +4,8 @@ namespace App\Blocks;
 
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
-use App\Support\SectionClasses;
+
+
 class CtaBg extends Block
 {
     public $name = 'Wezwanie do działania - Tło';

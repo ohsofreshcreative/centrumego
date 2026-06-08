@@ -12,6 +12,7 @@ class ReviewOptions extends Options
 	public $title = 'Globalne Zarządzanie Opiniami';
 	public $capability = 'edit_posts';
 	public $redirect = false; 
+	public $position = 83;
 
 	public function fields(): array
 	{

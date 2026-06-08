@@ -10,12 +10,11 @@ class ContactInfoOptions extends Options
 {
     // Nazwa widoczna w menu WP
     public $name = 'Dane Kontaktowe'; 
-    
     public $slug = 'contact-info-options'; 
-    
     public $title = ' Dane Kontaktowe ';
     public $capability = 'edit_posts';
     public $redirect = false;
+	public $position = 81;
 
     public function fields(): array
     {

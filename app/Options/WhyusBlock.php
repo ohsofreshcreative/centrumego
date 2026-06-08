@@ -12,6 +12,7 @@ class WhyusBlock extends Options
 	public $title = 'Sekcja: Dlaczego Centrum EGO';
 	public $capability = 'edit_posts';
 	public $redirect = false;
+	public $position = 84;
 
 	public function fields(): array
 	{
@@ -19,6 +20,7 @@ class WhyusBlock extends Options
 
 		$whyUs
 			->addTab('Nagłówek', ['placement' => 'top'])
+
 			->addText('title', [
 				'label' => 'Tytuł sekcji',
 			])
@@ -26,7 +28,6 @@ class WhyusBlock extends Options
 				'label' => 'Opis pod tytułem',
 				'rows' => 3,
 			])
-
 			->addTab('Statystyki', ['placement' => 'top'])
 			->addRepeater('counters', [
 				'label' => 'Statystyki',
@@ -62,7 +63,7 @@ class WhyusBlock extends Options
 				'media_upload' => true,
 			])
 			->endRepeater();
-
+			
 		return $whyUs->build();
 	}
 }

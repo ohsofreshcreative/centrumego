@@ -25,25 +25,19 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
 				<h2 class="text-primary">{{ $g_reviews['title']}}</h2>
 				<div class="">{!! $g_reviews['text'] !!}</div>
 			</div>
-
 			<div class="swiper reviews-swiper !overflow-visible">
 				<div data-gsap-element="swiper" class="swiper-wrapper ">
 					@foreach($r_reviews as $card)
 					<div class="swiper-slide h-full items-stretch flex flex-col">
 						<div class="__card relative bg-white radius px-8 py-8 h-full">
-
 							<div class="relative z-10 flex flex-col gap-4 h-full ">
-
 								@if(!empty($card['txt']))
-
 								<div class="review-content-wrapper ">
-
-									<div class="__txt line-clamp-6 text-carbon leading-6 ">{!! $card['txt'] !!}</div>
-
-									<button class="btn-more   underline text-[#8A8B8F] font-bold mt-2 cursor-pointer">Zobacz całość</button>
+									<div class="__txt line-clamp-6 text-carbon leading-6 ">{!! $card['txt'] !!}
+									</div>
+									<button class="btn-more underline text-[#8A8B8F] font-bold mt-2 cursor-pointer">Zobacz całość</button>
 								</div>
 								@endif
-
 
 								<b class="font-header text-xl mt-auto">{{ $card['name'] }}</b>
 								<div class="flex items-center gap-4 mt-auto">

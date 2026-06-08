@@ -4,7 +4,7 @@ namespace App\Options;
 
 use Log1x\AcfComposer\Options;
 use StoutLogic\AcfBuilder\FieldsBuilder; 
-
+use App\Support\SectionClasses;
 
 class CtaBgOptions extends Options
 {
@@ -14,6 +14,7 @@ class CtaBgOptions extends Options
     public $title = ' CTA ';
     public $capability = 'edit_posts';
     public $redirect = false;
+	public $position = 82;
 
     public function fields(): array
     {

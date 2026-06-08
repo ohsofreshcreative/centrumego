@@ -30,8 +30,6 @@
 				<a data-gsap-element="btn" class="btn-third btn m-btn second-btn mt-6 inline-block" href="{{ $g_partnership['button']['url'] }}">{{ $g_partnership['button']['title'] }}</a>
 				@endif
 			</div>
-
-
 			<div class=" w-full z-10 relative lg:pt-0">
 				@if(!empty($r_partnership))
 				<div class="__cards-repeater flex flex-col gap-5 w-full h-full relative z-10 ">
