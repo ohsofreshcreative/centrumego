@@ -1,0 +1,29 @@
+.b-symptoms {
+	.symptoms-tab-btn {
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -8px;
+			left: 50%;
+			transform: translateX(-50%) rotate(45deg);
+			width: 16px;
+			height: 16px;
+			background-color: var(--colors-section-light, #DDEDFF);
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.3s ease, visibility 0.3s ease;
+			z-index: 10;
+		}
+
+		&.active::after {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	span {
+		font-family: var(--header) !important;
+	}
+}

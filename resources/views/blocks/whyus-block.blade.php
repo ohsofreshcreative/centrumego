@@ -30,10 +30,10 @@
 			<div class="flex flex-wrap gap-4 sm:gap-6">
 				@foreach($counters as $counter)
 				<div class="bg-white radius py-6 pl-8 shadow-sm  flex flex-col   flex-1 min-w-[300px]">
-					<span class="block text-4xl md:text-5xl font-bold text-primary">
+					<span class="block text-4xl md:text-5xl font-bold text-primary font-header">
 						{{ $counter['number'] }}
 					</span>
-					<span class="text-2xl  text-primary font-semibold pt-2">
+					<span class="text-2xl  text-primary font-semibold pt-2 font-header">
 						{{ $counter['label'] }}
 					</span>
 				</div>
@@ -50,7 +50,7 @@
 			$bgUrl = !empty($card['image']['url']) ? $card['image']['url'] : '';
 			@endphp
 
-			<div class="relative group rounded-3xl overflow-hidden aspect-[3/4] flex flex-col justify-end p-6 shadow-md transition-transform duration-300 hover:-translate-y-1 bg-cover bg-center"
+			<div class="relative group w-full rounded-3xl overflow-hidden aspect-square md:aspect-[3/4] flex flex-col justify-end p-6 shadow-md transition-transform duration-300 hover:-translate-y-1 bg-cover bg-center max-h-[400px] md:max-h-none shrink-0"
 				style="background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.72) 100%), url('{{ $bgUrl }}');">
 
 				<div class="relative z-10 text-white ">

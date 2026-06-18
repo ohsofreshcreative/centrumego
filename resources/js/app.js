@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('.b-tabs')) import('./blocks/tabs');
   if (document.querySelector('.b-slider')) import('./blocks/slider');
   if (document.querySelector('.b-hero-sub')) import('./blocks/hero-sub');
+  if (document.querySelector('.b-symptoms')) import('./blocks/symptoms');
 });
 
 /*--- NOT USED ---*/

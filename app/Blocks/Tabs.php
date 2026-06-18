@@ -41,7 +41,12 @@ class Tabs extends Block
             ->addTab('Treści', ['placement' => 'top'])
             ->addGroup('g_tabs', ['label' => ''])
                 ->addText('title', ['label' => 'Tytuł'])
-                ->addText('txt', ['label' => 'Opis'])
+                ->addWysiwyg('txt', [
+                    'label' => 'Treść',
+                    'tabs' => 'all',
+                    'toolbar' => 'full',
+                    'media_upload' => true,
+                ])
             ->endGroup()
 
             /*--- KAFELKI / ZAKŁADKI ---*/

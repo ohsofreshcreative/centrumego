@@ -17,7 +17,7 @@ class Banner extends Block
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
-		'mode' => false,
+		'mode' => true,
 		'jsx' => true,
 	];
 
@@ -55,7 +55,7 @@ class Banner extends Block
 				'toolbar' => 'full', // 'basic', 'full'
 				'media_upload' => true,
 			])
-			->addLink('button1', [
+				->addLink('button1', [
 				'label' => 'Przycisk #1',
 				'return_format' => 'array',
 			])

@@ -117,7 +117,7 @@
 	/* bg  */
 	--gradient-lighter: linear-gradient(0deg, #E5EDF8 0%, rgba(229, 237, 248, 0.00) 100%);
 	--gradient-light-horizontal: linear-gradient(90deg, #DBE8FB 0%, rgba(219, 232, 251, 0.32) 100%);
-	
+
 
 }
 
@@ -177,7 +177,7 @@
 	--color-background-light: var(--bg-light);
 	--color-background-brand: var(--bg-brand);
 	--color-background-dark: var(--bg-dark);
-
+	--color-section-light: var(--colors-bg-light, #DDEDFF);
 	--color-primary-light: var(--color-primary-300);
 	--color-primary-lighter: var(--color-primary-100);
 
@@ -207,6 +207,15 @@
 @import '../css/blocks/partnership.scss';
 @import '../css/blocks/whyus-block.scss';
 @import '../css/blocks/about.scss';
+@import '../css/blocks/banner.scss';
+@import '../css/blocks/box.scss';
+@import '../css/blocks/header.scss';
+@import '../css/blocks/symptoms.scss';
+@import '../css/blocks/steps.scss';
+@import '../css/blocks/packages.scss';
+@import '../css/blocks/approach.scss';
+@import '../css/blocks/teaser.scss';
+@import '../css/blocks/map.scss';
 
 
 /*-- NOT USED ---*/
@@ -215,7 +224,6 @@
 @import '../css/blocks/contact.scss';
 @import '../css/blocks/cta-bg.scss';
 @import '../css/blocks/faq.scss';
-@import '../css/blocks/banner.scss';
 @import '../css/blocks/image.scss';
 @import '../css/blocks/logos.scss';
 @import '../css/blocks/numbers.scss';

@@ -41,22 +41,8 @@ class Faq extends Block
 			/*--- TAB #1 ---*/
 			->addTab('Elementy', ['placement' => 'top'])
 			->addGroup('g_faq', ['label' => ''])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array',
-				'preview_size' => 'thumbnail',
-			])
 			->addText('header', ['label' => 'Nagłówek'])
-			->addWysiwyg('text', [
-				'label' => 'Treść',
-				'tabs' => 'all', // 'visual', 'text', 'all'
-				'toolbar' => 'full', // 'basic', 'full'
-				'media_upload' => true,
-			])
-			->addLink('button', [
-				'label' => 'Przycisk',
-				'return_format' => 'array',
-			])
+			
 			->endGroup()
 
 			/*--- TAB #2 ---*/

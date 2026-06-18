@@ -1574,9 +1574,19 @@
           "color": "var(--action)"
         },
         {
+          "name": "Page",
+          "slug": "page",
+          "color": "var(--bg)"
+        },
+        {
           "name": "Background (Brand)",
           "slug": "background-brand",
           "color": "var(--bg-brand)"
+        },
+        {
+          "name": "Section (Light)",
+          "slug": "section-light",
+          "color": "var(--colors-bg-light,#ddedff)"
         },
         {
           "name": "Primary (Light)",

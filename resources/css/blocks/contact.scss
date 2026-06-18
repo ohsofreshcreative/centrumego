@@ -11,45 +11,7 @@
 	color:var(--text-s-lighter);
   }
 
-  .__phone {
-    display: flex;
-  }
 
-  .__phone::before {
-    content: url('/wp-content/uploads/2026/05/phone.svg');
-    margin-right: 16px;
-    position: relative;
-    top: 4px;
-    max-width: 40px;
-  }
-
-  .__mail {
-    display: flex;
-  }
-
-  .__mail::before {
-    content: url('/wp-content/uploads/2026/05/mail.svg');
-    margin-right: 16px;
-    position: relative;
-    top: 4px;
-    max-width: 40px;
-  }
-
-  .__address::before {
-    content: url('/wp-content/uploads/2026/01/place.svg');
-    margin-right: 16px;
-    position: relative;
-    top: 4px;
-    max-width: 40px;
-  }
-
-  .__hours::before {
-    content: url('/wp-content/uploads/2026/01/time.svg');
-    margin-right: 16px;
-    position: relative;
-    top: 4px;
-    max-width: 40px;
-  }
 
     ul {
       margin-top: 8px;

@@ -1,15 +1,4 @@
 .b-category-posts {
-	.blur {
-		position: absolute;
-		border-radius: 400px;
-		width: 400px;
-		height: 400px;
-		right: -15%;
-		top: -10%;
-		opacity: 0.3;
-		background: var(--colors-bg-third, #FF3437);
-		filter: blur(125px);
-	}
 
 	ul {
 		margin-top: 8px;
@@ -38,4 +27,18 @@
 			}
 		}
 	}
+}
+
+.b-category-posts._blur{
+	.blur {
+		position: absolute;
+		border-radius: 1242px;
+		width: 1242px;
+		height: 1242px;
+		right: -875px;
+		top: -426px;
+		opacity: 0.1;
+		filter: blur(125px);
+	}
+
 }

@@ -1,0 +1,35 @@
+.b-box {
+	&.c-main {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+
+
+	}
+
+	.__content {
+		.__header {
+			margin-bottom: 8px !important; 
+		}
+
+		p {
+			margin-top: 0 !important;
+		}
+	}
+
+	&._box {
+		&.c-main {
+			padding-left: 24px !important;
+			padding-right: 24px !important;
+		}
+
+		.__content {
+			.__text {}
+
+			h3 {
+				@media (min-width: 992px) {
+					font-size: 46px !important;
+				}
+			}
+		}
+	}
+}

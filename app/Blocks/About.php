@@ -8,7 +8,7 @@ use App\Support\SectionClasses;
 
 class About extends Block
 {
-    public $name = 'Tekst oraz zdjęcie';
+    public $name = 'Tekst oraz zdjęcie - about';
     public $description = 'about us';
     public $slug = 'about';
     public $category = 'formatting';

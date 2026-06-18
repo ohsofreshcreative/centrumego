@@ -41,11 +41,7 @@ class Boxes extends Block
 			/*--- GROUP ---*/
 			->addTab('Elementy', ['placement' => 'top'])
 			->addGroup('g_boxes', ['label' => ''])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array',
-				'preview_size' => 'thumbnail',
-			])
+		
 			->addText('header', ['label' => 'Nagłówek'])
 			->addWysiwyg('txt', [
 				'label' => 'Treść',
@@ -53,15 +49,7 @@ class Boxes extends Block
 				'toolbar' => 'full',
 				'media_upload' => true,
 			])
-			
-			->addLink('button1', [
-				'label' => 'Przycisk #1',
-				'return_format' => 'array',
-			])
-			->addLink('button2', [
-				'label' => 'Przycisk #2',
-				'return_format' => 'array',
-			])
+		
 
 			->endGroup()
 			/*--- Tabs ---*/

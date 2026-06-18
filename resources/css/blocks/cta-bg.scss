@@ -1,6 +1,5 @@
 .b-cta-bg {
-	background: linear-gradient(90deg, #0A397C 0%, #205298 100%);
-
+background-color: #0A397C;
 	.blur {
 		position: absolute;
 		left: -5%;
@@ -11,6 +10,28 @@
 		opacity: 0.5;
 		background: var(--colors-bg-secondary, #007AC2);
 		filter: blur(200px);
+	}
+
+	.blur-top {
+		position: absolute;
+		left: 40%;
+		top: -100px;
+		width: 300px;
+		height: 300px;
+		background: linear-gradient(90deg, #0A397C 0%, #205298 100%);
+		filter: blur(125px);
+		border-radius: 300px;
+	}
+
+	.blur-bottom {
+		position: absolute;
+		width: 300px;
+		height: 300px;
+		left: 40%;
+		bottom: -100px;
+		filter: blur(125px);
+		background: linear-gradient(90deg, #0A397C 0%, #205298 100%);
+		border-radius: 300px;
 	}
 
 	.font-header p {

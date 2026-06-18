@@ -13,8 +13,8 @@
 			<!--  <div class="mt-2">
             @php(the_excerpt())
         </div> -->
-			<p href="{{ get_permalink() }}" class="underline-btn mt-4">
-				Dowiedz się więcej
+			<p href="{{ get_permalink() }}" class="underline-btn mt-4 text-primary">
+				Przeczytaj
 			</p>
 		</div>
 	</a>

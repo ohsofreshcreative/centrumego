@@ -20,12 +20,13 @@
   }
 
   .tabs-label {
-    padding: 16px 16px;
+    padding: 32px 24px;
     margin-bottom: 0px !important;
     cursor: pointer;
     color: var(--body);
     .__arrow {
         transition: transform 0.3s ease-in-out;
+		transform: rotate(180deg);
     }
   }
 
@@ -50,7 +51,7 @@
     margin: 0;
 	margin-bottom:16px;
     color: var(--body);
-    font-size: 14px;
+    font-size: 16px;
 	display: inline-block;
   }
 
@@ -68,7 +69,7 @@
   }
 
   input:checked + .tabs-label .__arrow {
-    transform: rotate(180deg);
+	transform: rotate(0deg);
   }
 
   .tabs:has(input:checked) {

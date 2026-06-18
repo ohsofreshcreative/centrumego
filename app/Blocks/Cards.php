@@ -17,7 +17,7 @@ class Cards extends Block
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
-		'mode' => false,
+		'mode' => true,
 		'jsx' => true,
 	];
 
@@ -67,8 +67,9 @@ class Cards extends Block
 			->addText('title', [
 				'label' => 'Nagłówek',
 			])
-			->addTextarea('text', [
-				'label' => 'Opis',
+				->addLink('button', [
+				'label' => 'Przycisk',
+				'return_format' => 'array',
 			])
 			->endRepeater()
 

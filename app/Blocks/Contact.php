@@ -44,26 +44,12 @@ class Contact extends Block
 			->addTab('Dane', ['placement' => 'top'])
 			->addGroup('g_contact_1', ['label' => ''])
 			->addText('header', ['label' => 'Tytuł'])
-			->addText('phone', [
-				'label' => 'Numer telefonu',
-			])
-			->addText('mail', [
-				'label' => 'Adres e-mail',
-			])
-			->addTextarea('address1', [
-				'label' => 'Adres #1',
-				'rows' => 3,
-				'new_lines' => 'br',
-			])
-			->addTextarea('address2', [
-				'label' => 'Adres #2',
-				'rows' => 3,
-				'new_lines' => 'br',
-			])
-			->addTextarea('hours', [
-				'label' => 'Godziny pracy recepcji',
-				'rows' => 2,
-				'new_lines' => 'br',
+			
+		->addWysiwyg('txt', [
+				'label' => 'Treść',
+				'tabs' => 'all',
+				'toolbar' => 'full',
+				'media_upload' => true,
 			])
 			->addImage('image', [
 				'label' => 'Obraz w tle',

@@ -1,14 +1,13 @@
 .b-hero {
 	.blur {
 		position: absolute;
-		border-radius: 400px;
-		width: 400px;
-		height: 400px;
-		top: -10%;
-		left: -10%;
+		border-radius: 1242px;
+		width: 1242px;
+		height: 1242px;
+		left: -589px;
+		top: -958px;
 		opacity: 0.3;
-		background: var(--colors-bg-secondary, #007AC2);
 		filter: blur(125px);
 	}
-	
+
 }

@@ -1,32 +1,18 @@
 .b-proces {
-	   ul {
-      margin-top: 8px;
-      margin-bottom: 24px;
-      list-style: none;
-      padding-left: 0;
+.__wrapper {
+	span{
+			font-family: var(--header) !important;
+	}
+	h4{
+		font-family: var(--txt)!important;
+		font-weight: 600!important;
+		font-size: 18px!important;
 
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      li {
-        position: relative;
-        margin-bottom: 0.5em;
-        display: flex;
-        gap: 8px;
-        align-items: start;
-
-        &::before {
-          content: url('/wp-content/uploads/2026/01/double-arrow.svg');
-		  position: relative;
-          left: 0;
-          top: 2px;
-          width: 14px;
-          height: 14px;
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-      }
-    }
+	}
+	p{
+	strong{
+		padding-top: 30px;
+	}
+}
+}
 }

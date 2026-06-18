@@ -15,7 +15,7 @@
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-CDPd3lR_.css",
+    "file": "assets/app-DHNR6UaP.css",
     "name": "app",
     "names": [
       "app.css"
@@ -24,7 +24,7 @@
     "isEntry": true
   },
   "resources/css/editor.css": {
-    "file": "assets/editor-Cai9RIuz.css",
+    "file": "assets/editor-JIMRK-R9.css",
     "name": "editor",
     "names": [
       "editor.css"
@@ -33,7 +33,7 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-DJBcBb53.js",
+    "file": "assets/app-BITtJ2yv.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -41,7 +41,8 @@
       "resources/js/blocks/reviews.js",
       "resources/js/blocks/tabs.js",
       "resources/js/blocks/slider.js",
-      "resources/js/blocks/hero-sub.js"
+      "resources/js/blocks/hero-sub.js",
+      "resources/js/blocks/symptoms.js"
     ]
   },
   "resources/js/blocks/hero-sub.js": {
@@ -70,6 +71,12 @@
     "css": [
       "assets/slider-x1XGuNl0.css"
     ]
+  },
+  "resources/js/blocks/symptoms.js": {
+    "file": "assets/symptoms-zSdyAJMw.js",
+    "name": "symptoms",
+    "src": "resources/js/blocks/symptoms.js",
+    "isDynamicEntry": true
   },
   "resources/js/blocks/tabs.js": {
     "file": "assets/tabs-DHLaxzBo.js",

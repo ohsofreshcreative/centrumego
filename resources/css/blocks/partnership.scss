@@ -1,5 +1,7 @@
-.partnership {
- 
-
-
+.b-partnership {
+    .__content {
+        div > p:last-child {
+            padding-top: 12px !important;
+        }
+    }
 }

@@ -39,23 +39,7 @@ class Proces extends Block
 			/*--- FIELDS ---*/
 			->addTab('Treść', ['placement' => 'top'])
 			->addGroup('g_proces', ['label' => ''])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array',
-				'preview_size' => 'thumbnail',
-			])
 			->addText('header', ['label' => 'Nagłówek'])
-			->addWysiwyg('txt', [
-				'label' => 'Treść',
-				'tabs' => 'all',
-				'toolbar' => 'full',
-				'media_upload' => true,
-			])
-
-			->addLink('button1', [
-				'label' => 'Przycisk #1',
-				'return_format' => 'array',
-			])
 			->endGroup()
 
 			/*--- TAB #2 ---*/
@@ -66,11 +50,7 @@ class Proces extends Block
 				'min' => 1,
 				'button_label' => 'Dodaj kafelek'
 			])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'thumbnail',
-			])
+			
 			->addText('title', [
 				'label' => 'Nagłówek',
 			])
@@ -80,9 +60,7 @@ class Proces extends Block
 				'toolbar' => 'full',
 				'media_upload' => true,
 			])
-			->addText('hint', [
-				'label' => 'Podpowiedź',
-			])
+			
 			->endRepeater()
 
 			/*--- USTAWIENIA BLOKU ---*/
