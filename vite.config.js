@@ -10,13 +10,13 @@ import path from 'path'
 export default defineConfig(({ command }) => ({
   server: {
     host: 'centrumego.local',
-    port: 5981,
+    port: 5982,
     strictPort: true,
     cors: true,
     hmr: {
       protocol: 'ws',
       host: 'centrumego.local',
-      port: 5981,
+      port: 5982,
     },
   },
 

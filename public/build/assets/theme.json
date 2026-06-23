@@ -1499,24 +1499,9 @@
           "color": "rgb(var(--p-400))"
         },
         {
-          "name": "Primary (500)",
-          "slug": "primary-500",
-          "color": "rgb(var(--p-500))"
-        },
-        {
-          "name": "Primary (700)",
-          "slug": "primary-700",
-          "color": "rgb(var(--p-700))"
-        },
-        {
           "name": "Primary (800)",
           "slug": "primary-800",
           "color": "rgb(var(--p-800))"
-        },
-        {
-          "name": "Primary (Dark)",
-          "slug": "primary-dark",
-          "color": "rgb(var(--p-dark))"
         },
         {
           "name": "Secondary",
@@ -1547,11 +1532,6 @@
           "name": "Secondary (600)",
           "slug": "secondary-600",
           "color": "rgb(var(--s-600))"
-        },
-        {
-          "name": "Secondary (Dark)",
-          "slug": "secondary-dark",
-          "color": "rgb(var(--s-dark))"
         },
         {
           "name": "Third",
@@ -1597,11 +1577,6 @@
           "name": "Primary (Lighter)",
           "slug": "primary-lighter",
           "color": "var(--color-primary-100)"
-        },
-        {
-          "name": "Secondary (Lighter)",
-          "slug": "secondary-lighter",
-          "color": "var(--color-secondary-100)"
         }
       ]
     },
