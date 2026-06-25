@@ -8,7 +8,7 @@ use App\Support\SectionClasses;
 
 class Boxes extends Block
 {
-	public $name = 'Tekst, zdjęcie i kafelki';
+	public $name = 'Kafelki przewijane';
 	public $description = 'boxes - tekst, zdjęcie i kafelki';
 	public $slug = 'boxes';
 	public $category = 'formatting';

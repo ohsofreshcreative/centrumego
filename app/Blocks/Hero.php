@@ -61,48 +61,6 @@ class Hero extends Block
 			])
 
 			->endGroup()
-			/*--- TAB #2 ---*/
-			->addTab('Kafelki', ['placement' => 'top'])
-			->addText('title', [
-				'label' => 'Tytuł kafelków',
-			])
-			->addTextarea('desc', [
-				'label' => 'Opis',
-			])
-			->addRepeater('r_hero', [
-				'label' => 'Kafelki',
-				'layout' => 'table',
-				'min' => 1,
-				'button_label' => 'Dodaj kafelek'
-			])
-			->addImage('icon', [
-				'label' => 'Ikona',
-				'return_format' => 'array',
-				'preview_size' => 'thumbnail',
-			])
-
-			->addLink('title_link', [
-				'label' => 'Tytuł jako link',
-				'return_format' => 'array',
-			])
-			->addText('txt', ['label' => 'Tekst'])
-			->addLink('button', [
-				'label' => 'Przycisk',
-				'return_format' => 'array',
-			])
-			->addSelect('tile_bg', [
-				'label' => 'Kolor tła kafelka',
-				'choices' => [
-					'bg-secondary text-white' => 'Jasnoniebieski (#007AC2)',
-					'bg-primary text-white'   => 'Granatowy (#0A397C)',
-					'bg-primary-800 text-white' => 'Ciemnogranatowy (#051D3E)',
-					'bg-white text-body'      => 'Biały (Domyślny)',
-					
-				],
-				'default_value' => 'bg-white text-body',
-				'ui' => 1,
-			])
-			->endRepeater()
 
 
 			/*--- USTAWIENIA BLOKU ---*/

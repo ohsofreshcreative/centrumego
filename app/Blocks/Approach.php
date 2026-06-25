@@ -8,8 +8,8 @@ use App\Support\SectionClasses;
 
 class Approach extends Block
 {
-    public $name = 'Tekst, zdjęcie i kafelki (Approach)';
-    public $description = 'approach - tekst, zdjęcie i kafelki';
+    public $name = 'Kafelki z ikoną';
+    public $description = 'approach - Kafelki z ikoną';
     public $slug = 'approach';
     public $category = 'formatting';
     public $icon = 'align-pull-left';
@@ -34,7 +34,7 @@ class Approach extends Block
                 'required' => 0,
             ])
             ->addAccordion('accordion1', [
-                'label' => 'Tekst, zdjęcie oraz kafelki',
+                'label' => 'Kafelki z ikoną',
                 'open' => false,
                 'multi_expand' => true,
             ])

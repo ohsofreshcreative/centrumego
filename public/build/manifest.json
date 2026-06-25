@@ -15,7 +15,7 @@
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-DHTHJ7AO.css",
+    "file": "assets/app-DTiNYlTJ.css",
     "name": "app",
     "names": [
       "app.css"
@@ -24,7 +24,7 @@
     "isEntry": true
   },
   "resources/css/editor.css": {
-    "file": "assets/editor-DaAq_on-.css",
+    "file": "assets/editor-DoeFHOyl.css",
     "name": "editor",
     "names": [
       "editor.css"

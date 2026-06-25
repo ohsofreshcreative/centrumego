@@ -34,7 +34,7 @@ class Steps extends Block
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Tekst oraz zdjęcie',
+				'label' => 'Tekst, zdjęcie i kafelki',
 				'open' => false,
 				'multi_expand' => true,
 			])
