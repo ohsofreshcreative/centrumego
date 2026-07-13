@@ -7,12 +7,12 @@
 	$sectionClass=> filled($sectionClass),
 	$section_class => filled($section_class),
 	$background => filled($background) && $background !== 'none',
-	])>
+	])> 
 
 	<div class="__wrapper c-main">
 		<div class="grid grid-cols-1 md:grid-cols-[4fr_6fr]  items-start gap-10 z-10 relative">
 
-			<div class="__content l py-0 lg:sticky lg:top-36 z-20 ">
+			<div class="__content  py-0 lg:sticky lg:top-36 z-20 ">
 				@if (!empty($g_partnership['title']))
 				<h2 data-gsap-element="title" class="text-h2 text-primary mb-6 ">{{ $g_partnership['title'] }}</h2>
 				@endif
