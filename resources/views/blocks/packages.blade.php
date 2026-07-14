@@ -27,9 +27,9 @@
         </div>
         
         @if(!empty($r_packages))
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
+        <div data-gsap-element="card" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
             @foreach($r_packages as $card)
-            <div data-gsap-element="card" class="group relative bg-white pl-8 py-8 radius transition-all duration-300 flex flex-col text-left hover:shadow-lg hover:translate-y-1 ">
+            <div class="group relative bg-white pl-8 py-8 radius transition-all duration-300 flex flex-col text-left hover:shadow-lg hover:translate-y-1 ">
                 @if(!empty($card['card_image']['url']))
                 <div class="w-16 h-16 mb-5 flex items-center justify-center bg-primary rounded-full text-white relative overflow-visible">
                     <span class="absolute top-1 left-1 w-3 h-3 bg-[#037AC2] rounded-full"></span>
