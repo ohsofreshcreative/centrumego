@@ -81,13 +81,7 @@ $unique_id = 'clip_'.uniqid();
 <!-- cta -->
 <section
 	data-gsap-anim="section"
-	@if(!empty($section_id)) id="{{ $section_id }}" @endif
-	@class([ 'b-cta-bg -smt relative py-16 md:py-46 overflow-hidden bg-primary' ,
-	$sectionClass=> filled($sectionClass),
-	$section_class => filled($section_class),
-	$background => filled($background) && $background !== 'none',
-	])
-	>
+	class="b-cta-bg -smt relative py-16 md:py-46 overflow-hidden bg-primary">
 
 	@if(!empty($cta_bg['image']['url']))
 	<div class="absolute top-0 right-0 h-full w-full md:w-1/2 block z-0 ">
