@@ -59,7 +59,7 @@ $socials = get_field('social_media', 'option');
         </div>
     </div>
 
-    <div class="__wrapper c-main z-10">
+    <div class="__wrapper c-main z-10 relative">
         <div class="__widgets grid gap-1 md:gap-6 py-10 md:py-26">
             @for ($i = 1; $i <= 4; $i++)
                 @if (is_active_sidebar('sidebar-footer-' . $i))
