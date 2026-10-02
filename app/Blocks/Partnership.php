@@ -17,7 +17,7 @@ class Partnership extends Block
     public $mode = 'edit';
     public $supports = [
         'align' => false,
-        'mode' => false,
+        'mode' => true,
         'jsx' => true,
         'anchor' => true,
         'customClassName' => true,
@@ -29,15 +29,6 @@ class Partnership extends Block
 
         $partnership
             ->setLocation('block', '==', 'acf/partnership')
-            ->addText('block-title', [
-                'label' => 'Tytuł',
-                'required' => 0,
-            ])
-            ->addAccordion('accordion1', [
-                'label' => 'Treść oraz zdjęcie (partnership)',
-                'open' => false,
-                'multi_expand' => true,
-            ])
 
             ->addTab('Elementy', ['placement' => 'top'])
             ->addGroup('g_partnership', ['label' => ''])

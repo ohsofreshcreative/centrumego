@@ -27,15 +27,6 @@ class Features extends Block
 
 		$features
 			->setLocation('block', '==', 'acf/features')
-			->addText('block-title', [
-				'label' => 'Tytuł',
-				'required' => 0,
-			])
-			->addAccordion('accordion1', [
-				'label' => 'Kafelki',
-				'open' => false,
-				'multi_expand' => true,
-			])
 
 			/*--- TAB #1 ---*/
 			->addTab('Treści', ['placement' => 'top'])

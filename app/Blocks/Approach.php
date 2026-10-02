@@ -17,7 +17,7 @@ class Approach extends Block
     public $mode = 'edit';
     public $supports = [
         'align' => false,
-        'mode' => false,
+        'mode' => true,
         'jsx' => true,
         'anchor' => true,
         'customClassName' => true,
@@ -29,15 +29,6 @@ class Approach extends Block
 
         $approach
             ->setLocation('block', '==', 'acf/approach') // ważne!
-            ->addText('block-title', [
-                'label' => 'Tytuł',
-                'required' => 0,
-            ])
-            ->addAccordion('accordion1', [
-                'label' => 'Kafelki z ikoną',
-                'open' => false,
-                'multi_expand' => true,
-            ])
             /*--- GROUP ---*/
             ->addTab('Elementy', ['placement' => 'top'])
             ->addGroup('g_approach', ['label' => ''])

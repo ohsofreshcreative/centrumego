@@ -27,16 +27,7 @@ class Teaser extends Block
         $teaser = new FieldsBuilder('teaser');
 
         $teaser
-            ->setLocation('block', '==', 'acf/teaser') 
-            ->addText('block-title', [
-                'label' => 'Tytuł',
-                'required' => 0,
-            ])
-            ->addAccordion('accordion1', [
-                'label' => 'Hero - Z tłem',
-                'open' => false,
-                'multi_expand' => true,
-            ])
+            ->setLocation('block', '==', 'acf/teaser')
             /*--- TAB #1 ---*/
             ->addTab('Treść', ['placement' => 'top'])
             ->addGroup('g_teaser', ['label' => 'Teaser']) 

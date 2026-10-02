@@ -16,7 +16,7 @@ class Symptoms extends Block
     public $mode = 'edit';
     public $supports = [
         'align' => false,
-        'mode' => false,
+        'mode' => true,
         'jsx' => true,
         'anchor' => true,
         'customClassName' => true,
@@ -28,15 +28,6 @@ class Symptoms extends Block
 
         $symptoms
             ->setLocation('block', '==', 'acf/symptoms')
-            ->addText('block-title', [
-                'label' => 'Tytuł',
-                'required' => 0,
-            ])
-            ->addAccordion('accordion1', [
-                'label' => 'Objawy i wskazania',
-                'open' => false,
-                'multi_expand' => true,
-            ])
 
             /*--- KARTA 1: TREŚĆ GŁÓWNA ---*/
             ->addTab('Nagłówek', ['placement' => 'top'])

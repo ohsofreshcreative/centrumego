@@ -17,7 +17,7 @@ class Proces extends Block
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
-		'mode' => false,
+		'mode' => true,
 		'jsx' => true,
 	];
 
@@ -27,15 +27,6 @@ class Proces extends Block
 
 		$proces
 			->setLocation('block', '==', 'acf/proces') // ważne!
-			->addText('block-title', [
-				'label' => 'Tytuł',
-				'required' => 0,
-			])
-			->addAccordion('accordion1', [
-				'label' => 'Proces - Kafelki na dole',
-				'open' => false,
-				'multi_expand' => true,
-			])
 			/*--- FIELDS ---*/
 			->addTab('Treść', ['placement' => 'top'])
 			->addGroup('g_proces', ['label' => ''])

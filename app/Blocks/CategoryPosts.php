@@ -18,7 +18,7 @@ class CategoryPosts extends Block
     public $mode = 'edit';
     public $supports = [
         'align' => false,
-        'mode' => false,
+        'mode' => true,
         'jsx' => true,
     ];
 
@@ -28,15 +28,6 @@ class CategoryPosts extends Block
 
         $categoryPosts
             ->setLocation('block', '==', 'acf/category-posts') // ważne!
-            ->addText('block-title', [
-                'label' => 'Tytuł bloku',
-                'required' => 0,
-            ])
-            ->addAccordion('accordion1', [
-                'label' => 'Problemy - Ostatnie wpisy',
-                'open' => true,
-                'multi_expand' => true,
-            ])
             /*--- FIELDS ---*/
             ->addTab('Treści', ['placement' => 'top'])
             ->addGroup('posts_settings', ['label' => ''])

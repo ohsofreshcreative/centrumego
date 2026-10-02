@@ -17,7 +17,7 @@ class BlogLatest extends Block
     public $mode = 'edit';
     public $supports = [
         'align' => false,
-        'mode' => false,
+        'mode' => true,
         'jsx' => true,
         'anchor' => true,
         'customClassName' => true,
@@ -29,15 +29,6 @@ class BlogLatest extends Block
 
         $blogLatest
             ->setLocation('block', '==', 'acf/blog-latest')
-            ->addText('block-title', [
-                'label' => 'Tytuł (lokalny nagłówek)',
-                'required' => 0,
-            ])
-            ->addAccordion('accordion1', [
-                'label' => 'Ustawienia sekcji bloga',
-                'open' => false,
-                'multi_expand' => true,
-            ])
             
             /*--- KARTA 1: TREŚCI ---*/
             ->addTab('Treści', ['placement' => 'top'])

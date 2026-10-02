@@ -17,7 +17,7 @@ class CtaBg extends Block
     public $mode = 'edit';
     public $supports = [
         'align' => false,
-        'mode' => false,
+        'mode' => true,
         'jsx' => true,
         'anchor' => true,
         'customClassName' => true,
@@ -29,15 +29,6 @@ class CtaBg extends Block
 
         $cta_bg
             ->setLocation('block', '==', 'acf/cta-bg')
-            ->addText('block-title', [
-                'label' => 'Tytuł lokalny',
-                'required' => 0,
-            ])
-            ->addAccordion('accordion1', [
-                'label' => 'Informacje i ustawienia',
-                'open' => false,
-                'multi_expand' => true,
-            ])
 
             /*--- KARTA 1: INFORMACJE ---*/
             ->addTab('Informacja', ['placement' => 'top'])

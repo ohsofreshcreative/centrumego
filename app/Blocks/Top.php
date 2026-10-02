@@ -27,15 +27,6 @@ class Top extends Block
 
 		$top
 			->setLocation('block', '==', 'acf/top') // ważne!
-			->addText('block-title', [
-				'label' => 'Tytuł',
-				'required' => 0,
-			])
-			->addAccordion('accordion1', [
-				'label' => 'Hero - Z tłem',
-				'open' => false,
-				'multi_expand' => true,
-			])
 			/*--- TAB #1 ---*/
 			->addTab('Treść', ['placement' => 'top'])
 			->addGroup('g_top', ['label' => 'top'])

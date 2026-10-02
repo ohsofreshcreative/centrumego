@@ -18,7 +18,7 @@ class Contact extends Block
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
-		'mode' => false,
+		'mode' => true,
 		'jsx' => true,
 		'anchor' => true,
 		'customClassName' => true,
@@ -31,15 +31,6 @@ class Contact extends Block
 		$contact
 			->setLocation('block', '==', 'acf/contact') // ważne!
 			/*--- FIELDS ---*/
-			->addText('block-title', [
-				'label' => 'Tytuł',
-				'required' => 0,
-			])
-			->addAccordion('accordion1', [
-				'label' => 'Kontakt',
-				'open' => false,
-				'multi_expand' => true,
-			])
 			/*--- TAB #1 ---*/
 			->addTab('Dane', ['placement' => 'top'])
 			->addGroup('g_contact_1', ['label' => ''])

@@ -27,15 +27,6 @@ class Banner extends Block
 
 		$banner
 			->setLocation('block', '==', 'acf/banner') // ważne!
-			->addText('block-title', [
-				'label' => 'Tytuł',
-				'required' => 0,
-			])
-			->addAccordion('accordion1', [
-				'label' => 'Hero - Z tłem',
-				'open' => false,
-				'multi_expand' => true,
-			])
 			/*--- TAB #1 ---*/
 			->addTab('Treść', ['placement' => 'top'])
 			->addGroup('g_banner', ['label' => 'banner'])

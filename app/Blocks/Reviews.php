@@ -17,7 +17,7 @@ class Reviews extends Block
     public $mode = 'edit';
     public $supports = [
         'align' => false,
-        'mode' => false,
+        'mode' => true,
         'jsx' => true,
         'anchor' => true,
         'customClassName' => true,
@@ -29,15 +29,6 @@ class Reviews extends Block
 
         $reviews
             ->setLocation('block', '==', 'acf/reviews')
-            ->addText('block-title', [
-                'label' => 'Tytuł (lokalny nagłówek)',
-                'required' => 0,
-            ])
-            ->addAccordion('accordion1', [
-                'label' => 'Ustawienia i informacje',
-                'open' => false,
-                'multi_expand' => true,
-            ])
 
             /*--- KARTA 1: INFORMACJE ---*/
             ->addTab('Informacja', ['placement' => 'top'])

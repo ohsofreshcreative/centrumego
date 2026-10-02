@@ -18,7 +18,7 @@ class Accordion extends Block
 	public $mode = 'edit'; 
 	public $supports = [
 		'align' => false,
-		'mode' => false,
+		'mode' => true,
 		'jsx' => true,
 		'anchor' => true,
 		'customClassName' => true,
@@ -30,16 +30,6 @@ class Accordion extends Block
 
 		$accordion
 			->setLocation('block', '==', 'acf/accordion') // ważne!
-			->addText('block-title', [
-				'label' => 'Tytuł',
-				'required' => 0,
-			])
-
-			->addAccordion('accordion1', [
-				'label' => 'Rozwijane panele',
-				'open' => false,
-				'multi_expand' => true,
-			])
 
 			/*--- TAB #1 ---*/
 			->addTab('Treść', ['placement' => 'top'])

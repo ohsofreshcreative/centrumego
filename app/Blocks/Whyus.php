@@ -17,7 +17,7 @@ class Whyus extends Block
     public $mode = 'edit';
     public $supports = [
         'align' => false,
-        'mode' => false,
+        'mode' => true,
         'jsx' => true,
         'anchor' => true,
         'customClassName' => true,
@@ -29,15 +29,6 @@ class Whyus extends Block
 
         $whyUsBlock
             ->setLocation('block', '==', 'acf/whyus-block')
-            ->addText('block-title', [
-                'label' => 'Tytuł',
-                'required' => 0,
-            ])
-            ->addAccordion('accordion1', [
-                'label' => 'Dlaczego Centrum EGO',
-                'open' => false,
-                'multi_expand' => true,
-            ])
 
             /*--- KARTA 1: INFORMACJE ---*/
             ->addTab('Informacja', ['placement' => 'top'])

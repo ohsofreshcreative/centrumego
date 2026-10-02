@@ -12,16 +12,33 @@ use Illuminate\Support\Facades\Vite;
 /**
  * Inject styles into the block editor.
  *
- * @return array
+ * Podczas zbierania assetów do iframe'a edytora WordPress ustawia filtr
+ * `should_load_block_editor_scripts_and_styles` na false (_wp_get_iframed_editor_assets).
+ * W głównym dokumencie admina filtr zwraca true — tam pomijamy styl, żeby
+ * app.css nie wyciekał do interfejsu WP.
  */
-add_filter('block_editor_settings_all', function ($settings) {
-	$style = Vite::asset('resources/css/editor.css');
+add_action('enqueue_block_assets', function () {
+    if (! is_admin() || apply_filters('should_load_block_editor_scripts_and_styles', true)) {
+        return;
+    }
 
-	$settings['styles'][] = [
-		'css' => "@import url('{$style}')",
-	];
+    wp_enqueue_style('centrumego-editor', Vite::asset('resources/css/editor.css'), [], null);
+});
 
-	return $settings;
+/*--- ACF BLOCK EXPANDED EDITOR ---*/
+
+add_filter('acf/register_block_type_args', function ($block) {
+	if (! str_starts_with($block['name'] ?? '', 'acf/')) {
+		return $block;
+	}
+
+	$block['acf_block_version'] = 3;
+	$block['api_version'] = 3;
+	$block['expanded_editor_buttons'] = true;
+	$block['hide_fields_in_sidebar'] = true;
+	$block['auto_inline_editing'] = false;
+
+	return $block;
 });
 
 /**
@@ -140,6 +157,14 @@ add_action('after_setup_theme', function () {
 	add_theme_support('customize-selective-refresh-widgets');
 }, 20);
 
+/*--- REMOVE GLOBAL STYLES ---*/
+
+add_action('wp_enqueue_scripts', function () {
+	wp_dequeue_style('wp-block-library');
+	wp_dequeue_style('wp-block-library-theme');
+	wp_dequeue_style('global-styles');
+}, 100);
+
 /*--- WOOCOMMERCE PHP FILES ---*/
 
 array_map(function ($file) {
@@ -172,7 +197,7 @@ add_action('widgets_init', function () {
 	$defaultConfig = [
 		'before_widget' => '<section class="footer_widget widget %1$s %2$s">',
 		'after_widget' => '</section>',
-		'before_title' => '<p class="font-header text-h5 widget-title primary mb-4 flex">',
+		'before_title' => '<p class="font-header text-h6 widget-title primary !mb-4 flex">',
 		'after_title' => '</p>',
 	];
 
@@ -451,17 +476,16 @@ add_action('template_redirect', function () {
 
 /*--- PAGINATION ---*/
 
-namespace App;
 
 add_filter('the_posts_pagination_args', function ($args) {
-    $args['prev_text'] = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>';
-    $args['next_text'] = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
-    $args['screen_reader_text'] = __('Nawigacja po wpisach', 'sage');
-    return $args;
+	$args['prev_text'] = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>';
+	$args['next_text'] = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
+	$args['screen_reader_text'] = __('Nawigacja po wpisach', 'sage');
+	return $args;
 });
 
 add_filter('navigation_markup_template', function ($template, $class) {
-    return '
+	return '
     <nav class="navigation %1$s mt-10 mb-10" aria-label="%4$s">
         <h2 class="screen-reader-text">%2$s</h2>
         <div class="nav-links flex items-center justify-center gap-4">%3$s</div>
@@ -469,11 +493,63 @@ add_filter('navigation_markup_template', function ($template, $class) {
 }, 10, 2);
 
 add_filter('paginate_links_output', function ($output) {
-    $output = str_replace('page-numbers', 'page-numbers inline-flex items-center justify-center w-10 h-10 rounded-full', $output);
-    $output = str_replace('current', 'current bg-primary text-white', $output);
-    $output = str_replace('prev', 'prev', $output);
-    $output = str_replace('next', 'next', $output);
-    return $output;
+	$output = str_replace('page-numbers', 'page-numbers inline-flex items-center justify-center w-10 h-10 rounded-full', $output);
+	$output = str_replace('current', 'current bg-primary text-white', $output);
+	$output = str_replace('prev', 'prev', $output);
+	$output = str_replace('next', 'next', $output);
+	return $output;
 });
 
+/*--- PDF THUMBNAIL ---*/
 
+/**
+ * Generates a thumbnail from the first page of a PDF file and returns its URL.
+ *
+ * @param int $pdf_attachment_id The attachment ID of the PDF file.
+ * @return string The URL to the generated thumbnail or the original PDF URL on failure.
+ */
+function get_pdf_thumbnail_url($pdf_attachment_id)
+{
+	// Check if Imagick extension is available
+	if (!extension_loaded('imagick')) {
+		error_log('Imagick extension is not loaded. PDF thumbnail generation is disabled.');
+		return wp_get_attachment_url($pdf_attachment_id);
+	}
+
+	$pdf_path = get_attached_file($pdf_attachment_id);
+	if (!$pdf_path || !file_exists($pdf_path)) {
+		return wp_get_attachment_url($pdf_attachment_id);
+	}
+
+	$upload_dir = wp_upload_dir();
+	$thumbnail_filename = pathinfo($pdf_path, PATHINFO_FILENAME) . '-pdf-thumb.jpg';
+	$thumbnail_path = "{$upload_dir['path']}/{$thumbnail_filename}";
+	$thumbnail_url = "{$upload_dir['url']}/{$thumbnail_filename}";
+
+	// If thumbnail already exists, return its URL
+	if (file_exists($thumbnail_path)) {
+		return $thumbnail_url;
+	}
+
+	try {
+		$imagick = new \Imagick();
+		$imagick->setResolution(150, 150);
+		$imagick->readImage("{$pdf_path}[0]");
+		// Konwertuj CMYK → sRGB jeśli potrzeba
+		if ($imagick->getImageColorspace() === \Imagick::COLORSPACE_CMYK) {
+			$imagick->transformImageColorspace(\Imagick::COLORSPACE_SRGB);
+		}
+		$imagick->setImageFormat('jpeg');
+		$imagick->setImageBackgroundColor('white');
+		$imagick->setImageAlphaChannel(\Imagick::ALPHACHANNEL_REMOVE);
+		$imagick->mergeImageLayers(\Imagick::LAYERMETHOD_FLATTEN);
+		$imagick->writeImage($thumbnail_path);
+		$imagick->clear();
+		$imagick->destroy();
+
+		return $thumbnail_url;
+	} catch (\Exception $e) {
+		error_log('PDF to Image conversion failed: ' . $e->getMessage());
+		return wp_get_attachment_url($pdf_attachment_id);
+	}
+}

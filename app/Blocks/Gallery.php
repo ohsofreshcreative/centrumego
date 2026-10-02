@@ -16,7 +16,7 @@ class Gallery extends Block
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
-		'mode' => false,
+		'mode' => true,
 		'jsx' => true,
 		'anchor' => true,
 		'customClassName' => true,
@@ -28,15 +28,6 @@ class Gallery extends Block
 
 		$gallery
 			->setLocation('block', '==', 'acf/gallery') // ważne!
-			->addText('block-title', [
-				'label' => 'Tytuł',
-				'required' => 0,
-			])
-			->addAccordion('accordion1', [
-				'label' => 'Galeria',
-				'open' => false,
-				'multi_expand' => true,
-			])
 			/*--- FIELDS ---*/
 			->addTab('Galeria', ['placement' => 'top'])
 			->addGroup('g_gallery', ['label' => ''])
