@@ -216,6 +216,10 @@
 @import '../css/blocks/approach.scss';
 @import '../css/blocks/teaser.scss';
 @import '../css/blocks/map.scss';
+@import '../css/blocks/services.scss';
+@import '../css/blocks/prepare.scss';
+@import '../css/blocks/extras.scss';
+@import '../css/blocks/nextsteps.scss';
 
 
 /*-- NOT USED ---*/

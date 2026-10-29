@@ -36,6 +36,24 @@ class CtaBg extends Block
                 'info',
                 'Treści CTA edytujesz globalnie w zakładce "CTA" w menu bocznym'
             )
+            ->addTab('Treść lokalna', ['placement' => 'top'])
+            ->addGroup('g_cta_bg_override', ['label' => ''])
+                ->addText('header', ['label' => 'Nagłówek'])
+                ->addWysiwyg('txt', [
+                    'label' => 'Treść',
+                    'tabs' => 'all',
+                    'toolbar' => 'full',
+                    'media_upload' => true,
+                ])
+                ->addLink('button', [
+                    'label' => 'Przycisk #1',
+                    'return_format' => 'array',
+                ])
+                ->addLink('button2', [
+                    'label' => 'Przycisk #2',
+                    'return_format' => 'array',
+                ])
+            ->endGroup()
 
             /*--- KARTA 2: USTAWIENIA WIZUALNE BLOKU ---*/
             ->addTab('Ustawienia bloku', ['placement' => 'top'])
@@ -98,6 +116,7 @@ class CtaBg extends Block
         $fields = [
             // Dane pobierane globalnie z Options Page:
             'cta_bg'        => get_field('g_cta_bg', 'option') ?: [],
+            'g_cta_bg_override' => get_field('g_cta_bg_override') ?: [],
 
             // Ustawienia pobierane lokalnie z danego bloku:
             'block_title'   => get_field('block-title'),

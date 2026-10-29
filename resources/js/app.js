@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
         filter: 'blur(15px)',
         duration: 1,
         ease: 'power2.out',
-        delay: index * 0.1,
+        delay: Math.min(index, 3) * 0.1,
         scrollTrigger: {
           trigger: element,
           start: 'top 90%',

@@ -1,3 +1,7 @@
+@php
+  $cta = !empty($g_cta_bg_override['header']) ? $g_cta_bg_override : $cta_bg;
+@endphp
+
 <!-- cta  -->
 <section
 	data-gsap-anim="section"
@@ -23,33 +27,33 @@
 	<div class="c-main px-6 md:px-12 relative z-10">
 		<div class="__content w-full md:max-w-2xl flex flex-col gap-6 ">
 			<div class="__text">
-				@if (!empty($cta_bg['header']))
+				@if (!empty($cta['header']))
 				<h2 data-gsap-element="header" class="mb-6 text-white">
-					{{ $cta_bg['header'] }}
+					{{ $cta['header'] }}
 				</h2>
 				@endif
 
-				@if (!empty($cta_bg['txt']))
+				@if (!empty($cta['txt']))
 				<div data-gsap-element="txt" class="text-white text-2lg font-header">
-					{!! $cta_bg['txt'] !!}
+					{!! $cta['txt'] !!}
 				</div>
 				@endif
 			</div>
-			@if (!empty($cta_bg['button']['url']) || !empty($cta_bg['button2']['url']))
+			@if (!empty($cta['button']['url']) || !empty($cta['button2']['url']))
 			<div class="inline-buttons m-btn flex flex-wrap gap-4">
-				@if (!empty($cta_bg['button']['url']))
-				<x-button :href="$cta_bg['button']['url']" variant="third" data-gsap-element="btn">
-					{{ $cta_bg['button']['title']}}
+				@if (!empty($cta['button']['url']))
+				<x-button :href="$cta['button']['url']" variant="third" data-gsap-element="btn">
+					{{ $cta['button']['title']}}
 				</x-button>
 				@endif
 
-				@if (!empty($cta_bg['button2']['url']) && !is_page('program-dietetyczny'))
+				@if (!empty($cta['button2']['url']) && !is_page('program-dietetyczny'))
 				<x-button
-					:href="$cta_bg['button2']['url']"
+					:href="$cta['button2']['url']"
 					variant="secondary"
 					data-gsap-element="btn-secondary"
 					class="btn">
-					{{ $cta_bg['button2']['title'] }}
+					{{ $cta['button2']['title'] }}
 				</x-button>
 				@endif
 			</div>
